@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BeMarketing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css">
+    <!-- <style>
+    :root {
+      --primary: #ff0054;
+      --dark: #0b0b0b;
+      --light: #fefcfd;
+    }
+    .text-primary { color: var(--primary); }
+    .bg-primary { background-color: var(--primary); }
+    .border-primary { border-color: var(--primary); }
+  </style> -->
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#ff0054',
+                        dark: 'rgb(4, 6, 62)',
+                        light: '#fefcfd',
+                    },
+                },
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-[var(--light)] text-[var(--dark)]">
+
+    <div id="custom-cursor"
+        class="fixed w-8 h-8 rounded-full border border-[#ff0054] pointer-events-none z-[9999] hidden lg:flex items-center justify-center">
+        <div class="w-2 h-2 rounded-full bg-[#ff0054]"></div>
+    </div>
+
+    <div class="bg-gradient-to-br from-[#fef8f7] to-[#f7edeb]">
+        <!-- Header superior -->
+        <header id="mainHeader" class="w-full z-50 py-4 px-6 md:px-10 fixed top-0 left-0 right-0">
+            <div class="max-w-7xl mx-auto flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center gap-2 text-xl font-bold text-[var(--dark)]">
+                    <i class="ri-arrow-up-right-line text-primary text-lg"></i>
+                    <img src="https://grupoauren.pe/wp-content/uploads/2021/10/AUREN-PORTADA-LOGO.png" alt="Grupo Auren"
+                        class="w-[120px]">
+                </div>
+
+                <!-- Botón hamburguesa -->
+                <button id="openMenu" class="md:hidden text-2xl text-primary">
+                    <i class="ri-menu-line"></i>
+                </button>
+
+                <!-- Navegación Desktop -->
+                <nav class="hidden md:flex items-center gap-6 text-sm font-semibold uppercase">
+                    <a href="#" class="hover:text-primary">Portada</a>
+                    <a href="#" class="hover:text-primary">Nosotros</a>
+                    <a href="#" class="hover:text-primary">Servicios</a>
+                    <a href="#" class="hover:text-primary">Blog</a>
+                    <a href="#"
+                        class="bg-primary text-white text-sm font-semibold py-2 px-4 rounded-md shadow hover:opacity-90 transition">
+                        Contacto
+                    </a>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Menú Móvil Slide -->
+        <div id="mobileOverlay"
+            class="fixed inset-0 bg-white uppercase z-50 flex flex-col items-center justify-center gap-y-6 text-xl font-semibold text-[var(--dark)] transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+            <button id="closeMenu" class="absolute top-4 right-6 text-3xl text-primary">
+                <i class="ri-close-line"></i>
+            </button>
+
+            <a href="#" class="hover:text-primary">Portada</a>
+            <a href="#" class="hover:text-primary">Nosotros</a>
+            <a href="#" class="hover:text-primary">Servicios</a>
+            <a href="#" class="hover:text-primary">Blog</a>
+        </div>
+
+        <!-- HERO -->
+        <section
+            class="relative px-6 md:px-10 pt-20 pb-28 md:pt-[140px] grid md:grid-cols-2 gap-4 items-center overflow-hidden">
+            <!-- LEFT -->
+
+            <img src="./img-1.png" alt="" class="absolute -bottom-[100px] w-[300px]">
+
+            <div data-aos="fade-right">
+                <p class="text-xs font-[800] text-primary mb-2 flex items-center gap-1">
+                    <i class="ri-arrow-up-right-line text-xs"></i> Distribuidora de consumo masivo en Lima
+                </p>
+                <h1 class="text-4xl md:text-[48px] font-bold leading-tight mt-5 mb-6">
+                    Impulsamos la distribución de tus productos con
+                    <span class="bg-primary text-white px-3 rounded-md inline-block">eficiencia y confianza</span>
+                </h1>
+                <p>
+                    Hacemos que tus productos lleguen con la eficiencia que necesitas y la confianza que tu negocio
+                    merece,
+                    integrando diversas categorías en una sola operación de distribución.
+                </p>
+                <a href="#"
+                    class="text-[24px] mt-8 inline-block border-2 border-primary text-primary font-semibold px-5 py-2 rounded-md bg-primary text-white transition">
+                    → Agendar reunión
+                </a>
+            </div>
+
+            <!-- RIGHT -->
+            <div class="relative flex justify-center items-center" data-aos="fade-left">
+                <!-- <img src="/images/girl.png" alt="Marketing Girl" class="w-[260px] md:w-[320px] z-10" /> -->
+
+                <!-- ICONOS -->
+                <div class="absolute top-6 left-20 bg-white rounded-xl p-2 shadow-lg z-20 float-y">
+                    <i class="ri-bar-chart-fill text-2xl text-[#ffb700]"></i>
+                </div>
+                <div class="absolute top-10 right-20 bg-white rounded-xl p-2 shadow-lg z-20 float-y">
+                    <i class="ri-pie-chart-2-fill text-2xl text-[#00b974]"></i>
+                </div>
+                <div class="absolute bottom-0 right-32 bg-white rounded-xl p-2 shadow-lg z-20 float-y">
+                    <i class="ri-coins-fill text-2xl text-[#00c3ff]"></i>
+                </div>
+
+                <div class="relative w-[350px] h-[350px] rounded-full overflow-hidden mx-auto">
+                    <!-- Mitad izquierda (roja con imagen) -->
+                    <div class="absolute top-0 left-0 w-1/2 h-full overflow-hidden">
+                        <img src="https://crowdytheme.com/wp/arolax/web-design-agencey/wp-content/uploads/sites/15/2024/07/Group-1000003642-150x300.png"
+                            class="w-full h-full object-cover mix-blend-multiply bg-red-600" />
+                    </div>
+
+                    <!-- Mitad derecha (imagen normal) -->
+                    <div class="absolute top-0 right-0 w-1/2 h-full overflow-hidden">
+                        <img src="https://crowdytheme.com/wp/arolax/web-design-agencey/wp-content/uploads/sites/15/2024/06/1-1.jpg"
+                            class="w-full h-full object-cover" />
+                    </div>
+
+                    <!-- Botón de video -->
+                    <div class="absolute bottom-6 right-[-30px] flex items-center gap-2">
+                        <button class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center">
+                            <i class="ri-play-fill text-2xl"></i>
+                        </button>
+                        <span class="text-xs font-semibold text-black">WATCH VIDEO</span>
+                    </div>
+
+                    <!-- Decoraciones (opcional) -->
+                    <div class="absolute top-4 left-4 w-2 h-2 bg-black rounded-full"></div>
+                    <div class="absolute top-10 left-10 text-black text-2xl">〰</div>
+                </div>
+
+            </div>
+
+            <!-- CURVA INFERIOR -->
+            <!-- <div class="absolute bottom-0 left-0 right-0 z-0">
+      <svg class="w-full h-[100px]" viewBox="0 0 1440 320">
+        <path fill="#ff0054" fill-opacity="1" d="M0,160L60,165.3C120,171,240,181,360,176C480,171,600,149,720,144C840,139,960,149,1080,149.3C1200,149,1320,139,1380,133.3L1440,128L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path>
+      </svg>
+    </div> -->
+        </section>
+    </div>
+
+    <section class="bg-[#f9f9fc] py-16 px-6 lg:px-20">
+        <div class="max-w-7xl mx-auto flex flex-col-reverse lg:flex-row items-center gap-10">
+
+            <!-- Texto -->
+            <div class="w-full lg:w-1/2 space-y-6">
+                <span
+                    class="inline-block px-4 py-1 text-sm font-semibold text-[#9c2140] bg-[#fbe9ee] rounded-full shadow-sm">
+                    ¿Por qué elegirnos como tu distribuidora?
+                </span>
+
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 leading-snug">
+                    Un operador integral que impulsa tu crecimiento
+                </h2>
+
+                <p class="text-gray-600">
+                    Integramos logística, tecnología y ejecución de campo para que tu marca tenga más eficiencia,
+                    control y resultados reales.
+                </p>
+
+                <ul class="space-y-4">
+                    <li class="flex items-start gap-3">
+                        <span class="text-pink-600 text-xl">✔️</span>
+                        <p><strong>Un solo operador, múltiples categorías</strong> — modelo horizontal que reduce
+                            fricciones y aumenta la eficiencia.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-pink-600 text-xl">✔️</span>
+                        <p><strong>Entregas confiables y medibles</strong> — altos niveles de cumplimiento (OTIF) con
+                            procesos controlados.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-pink-600 text-xl">✔️</span>
+                        <p><strong>Data y reportes unificados</strong> — visibilidad en tiempo real para tomar
+                            decisiones con seguridad.</p>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-pink-600 text-xl">✔️</span>
+                        <p><strong>Optimización de costos y complejidad</strong> — centralizar con un socio reduce
+                            gastos y coordinación.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Imagen -->
+            <div class="w-full lg:w-1/2 flex flex-col justify-center">
+                <img src="https://themes.muffingroup.com/be/marketing2/wp-content/uploads/2022/06/marketing2-work-pic1.webp"
+                    alt="" class="w-[80%] mx-auto">
+                <section id="statsSection">
+                    <div class="grid grid-cols-2 gap-4">
+
+                        <div class="bg-white rounded-2xl px-6 py-5 shadow-md border border-gray-100 text-center">
+                            <p class="stat text-3xl font-bold text-[#ff0054]" data-target="20">20</p>
+                            <p class="text-sm text-gray-500">Años de experiencia</p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl px-6 py-5 shadow-md border border-gray-100 text-center">
+                            <p class="stat text-3xl font-bold text-[#ff0054]" data-target="1000">1000</p>
+                            <p class="text-sm text-gray-500">Marcas atendidas</p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl px-6 py-5 shadow-md border border-gray-100 text-center">
+                            <p class="stat text-3xl font-bold text-[#ff0054]" data-target="20000000">20.000.000</p>
+                            <p class="text-sm text-gray-500">Productos gestionados/año</p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl px-6 py-5 shadow-md border border-gray-100 text-center">
+                            <p class="stat text-3xl font-bold text-[#ff0054]" data-target="24">24</p>
+                            <p class="text-sm text-gray-500">Ciudades con cobertura</p>
+                        </div>
+
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="py-20 px-6 md:px-12 bg-white">
+        <!-- Título principal -->
+        <div class="max-w-7xl mx-auto text-center mb-16" data-aos="fade-up">
+            <p class="text-sm font-bold text-[#ff0054] mb-2 flex items-center justify-center gap-2">
+                <i class="ri-arrow-up-right-line text-sm"></i> GRUPO AUREN
+            </p>
+            <h2 class="text-4xl md:text-5xl font-bold text-[#0b0b0b] leading-tight">
+                Operaciones logísticas <br class="hidden md:block"> que mueven tu negocio
+            </h2>
+        </div>
+
+        <!-- Cuatro columnas -->
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+
+            <!-- Item 1 -->
+            <div class="flex flex-col items-center hover:bg-[#f8fafc] py-4 px-3 rounded-md" data-aos="fade-up"
+                data-aos-delay="100">
+                <span class="text-xs font-bold text-white bg-[#ff0054] px-3 py-1 rounded-full mb-4">01</span>
+                <i class="ri-truck-line text-[40px] text-[#0b0b0b] mb-4"></i>
+                <h3 class="text-lg font-semibold text-[#0b0b0b] leading-tight">Distribución<br>nacional</h3>
+                <p class="text-sm text-gray-500 mt-2">Cobertura eficiente en Lima y provincias para tu marca.</p>
+                <button type="button"
+                    class="mt-6 text-xl text-[#0b0b0b] w-[32px] h-[32px] rounded-full flex justify-center items-center hover:bg-primary hover:text-white">
+                    <i class="ri-arrow-right-line"></i>
+                </button>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="flex flex-col items-center hover:bg-[#f8fafc] py-4 px-3 rounded-md" data-aos="fade-up"
+                data-aos-delay="200">
+                <span class="text-xs font-bold text-white bg-[#fbbc05] px-3 py-1 rounded-full mb-4">02</span>
+                <i class="ri-archive-2-line text-[40px] text-[#0b0b0b] mb-4"></i>
+                <h3 class="text-lg font-semibold text-[#0b0b0b] leading-tight">Almacenaje<br>inteligente</h3>
+                <p class="text-sm text-gray-500 mt-2">Espacios optimizados con tecnología y trazabilidad.</p>
+                <button type="button"
+                    class="mt-6 text-xl text-[#0b0b0b] w-[32px] h-[32px] rounded-full flex justify-center items-center hover:bg-primary hover:text-white">
+                    <i class="ri-arrow-right-line"></i>
+                </button>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="flex flex-col items-center hover:bg-[#f8fafc] py-4 px-3 rounded-md" data-aos="fade-up"
+                data-aos-delay="300">
+                <span class="text-xs font-bold text-white bg-[#00b386] px-3 py-1 rounded-full mb-4">03</span>
+                <i class="ri-group-line text-[40px] text-[#0b0b0b] mb-4"></i>
+                <h3 class="text-lg font-semibold text-[#0b0b0b] leading-tight">Atención<br>personalizada</h3>
+                <p class="text-sm text-gray-500 mt-2">Gestores asignados para garantizar eficiencia y confianza.</p>
+                <button type="button"
+                    class="mt-6 text-xl text-[#0b0b0b] w-[32px] h-[32px] rounded-full flex justify-center items-center hover:bg-primary hover:text-white">
+                    <i class="ri-arrow-right-line"></i>
+                </button>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="flex flex-col items-center hover:bg-[#f8fafc] py-4 px-3 rounded-md" data-aos="fade-up"
+                data-aos-delay="400">
+                <span class="text-xs font-bold text-white bg-[#00c3ff] px-3 py-1 rounded-full mb-4">04</span>
+                <i class="ri-bar-chart-box-line text-[40px] text-[#0b0b0b] mb-4"></i>
+                <h3 class="text-lg font-semibold text-[#0b0b0b] leading-tight">Reportes<br>en tiempo real</h3>
+                <p class="text-sm text-gray-500 mt-2">Visualiza métricas y trazabilidad desde tu panel exclusivo.</p>
+                <button type="button"
+                    class="mt-6 text-xl text-[#0b0b0b] w-[32px] h-[32px] rounded-full flex justify-center items-center hover:bg-primary hover:text-white">
+                    <i class="ri-arrow-right-line"></i>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <section class="py-20 px-6 md:px-12 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
+
+            <!-- Imagen -->
+            <div class="relative w-full flex justify-center items-center" data-aos="fade-right">
+                <img src="https://themes.muffingroup.com/be/marketing2/wp-content/uploads/2022/06/marketing2-work-pic1.webp"
+                    alt="Grupo Auren Logística" class="max-w-[80%] mt-14">
+            </div>
+
+            <!-- Contenido textual -->
+            <div data-aos="fade-left">
+                <p class="text-sm font-bold text-[#ff0054] mb-3 flex items-center gap-2">
+                    <i class="ri-arrow-up-right-line text-sm"></i> GRUPO AUREN
+                </p>
+
+                <h2 class="text-4xl md:text-5xl font-bold text-[#0b0b0b] leading-tight mb-4">
+                    Nos enfocamos en la <span class="text-[#ff0054]">eficiencia logística</span>
+                </h2>
+
+                <p class="text-gray-500 mb-8 text-sm md:text-base leading-relaxed">
+                    En Grupo Auren integramos tecnología, gestión y equipo para lograr una distribución fluida y
+                    confiable.
+                    Optimizamos cada proceso desde el almacenaje hasta la entrega final, asegurando el cumplimiento de
+                    los tiempos pactados.
+                </p>
+
+                <!-- Métricas -->
+                <div class="flex gap-8 mb-10">
+                    <div>
+                        <p class="text-sm text-gray-500 mb-1">Nivel de cumplimiento</p>
+                        <div class="inline-block bg-[#fbbc05] text-white text-sm font-semibold px-3 py-1 rounded-md">95%
+                        </div>
+                        <p class="text-sm mt-1 text-[#0b0b0b] font-medium">Órdenes entregadas a tiempo</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-gray-500 mb-1">Aumento de eficiencia</p>
+                        <div class="inline-block bg-[#00b386] text-white text-sm font-semibold px-3 py-1 rounded-md">
+                            +30%</div>
+                        <p class="text-sm mt-1 text-[#0b0b0b] font-medium">Reducción de tiempos logísticos</p>
+                    </div>
+                </div>
+
+                <!-- Botón -->
+                <a href="#"
+                    class="inline-flex items-center gap-2 border-2 border-[#ff0054] text-[#ff0054] font-semibold text-sm px-5 py-3 rounded-md bg-primary text-white transition-all duration-300">
+                    <i class="ri-arrow-right-up-line"></i> Conocer más
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="bg-gradient-to-br from-[#fefcfd] to-[#f6f6f9] py-24 px-4">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <span
+                class="inline-block bg-[#ffe5ed] text-[#ff0054] px-5 py-1.5 rounded-full text-sm font-semibold tracking-wide shadow-sm">
+                Nuestros servicios
+            </span>
+            <h2 class="text-4xl md:text-5xl font-bold text-[#0b0b0b] mt-4">Soluciones integrales para cada etapa</h2>
+            <p class="text-gray-500 mt-3 max-w-2xl mx-auto">
+                Cubrimos toda la cadena de distribución: logística, ejecución, tecnología y servicio.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+
+            <!-- Tarjeta -->
+            <div
+                class="bg-white border border-gray-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                <div
+                    class="w-12 h-12 flex items-center justify-center rounded-full bg-[#ffe5ed] text-[#ff0054] text-2xl mb-4 shadow-sm">
+                    <i class="ri-route-line"></i>
+                </div>
+                <h3 class="font-semibold text-[#111827] text-lg mb-1">Distribución y transporte</h3>
+                <p class="text-sm text-gray-500">Cobertura confiable con foco en cumplimiento de entregas.</p>
+            </div>
+
+            <div
+                class="bg-white border border-gray-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                <div
+                    class="w-12 h-12 flex items-center justify-center rounded-full bg-[#e6f2ff] text-[#365EFF] text-2xl mb-4 shadow-sm">
+                    <i class="ri-archive-line"></i>
+                </div>
+                <h3 class="font-semibold text-[#111827] text-lg mb-1">Almacenaje & picking</h3>
+                <p class="text-sm text-gray-500">Inventarios controlados y preparación de pedidos eficiente.</p>
+            </div>
+
+            <div
+                class="bg-white border border-gray-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                <div
+                    class="w-12 h-12 flex items-center justify-center rounded-full bg-[#fef3c7] text-[#f59e0b] text-2xl mb-4 shadow-sm">
+                    <i class="ri-bar-chart-2-line"></i>
+                </div>
+                <h3 class="font-semibold text-[#111827] text-lg mb-1">Herramientas tecnológicas</h3>
+                <p class="text-sm text-gray-500">Trazabilidad y análisis en tiempo real.</p>
+            </div>
+
+            <div
+                class="bg-white border border-gray-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                <div
+                    class="w-12 h-12 flex items-center justify-center rounded-full bg-[#e8f5e9] text-[#16a34a] text-2xl mb-4 shadow-sm">
+                    <i class="ri-eye-line"></i>
+                </div>
+                <h3 class="font-semibold text-[#111827] text-lg mb-1">Rastrillajes de campo</h3>
+                <p class="text-sm text-gray-500">Visibilidad directa de ejecución en puntos de venta.</p>
+            </div>
+
+            <div
+                class="bg-white border border-gray-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                <div
+                    class="w-12 h-12 flex items-center justify-center rounded-full bg-[#f3e8ff] text-[#8b5cf6] text-2xl mb-4 shadow-sm">
+                    <i class="ri-store-line"></i>
+                </div>
+                <h3 class="font-semibold text-[#111827] text-lg mb-1">Atención a PDV & merchandising</h3>
+                <p class="text-sm text-gray-500">Reposición, exhibición y auditoría en tienda.</p>
+            </div>
+
+            <div
+                class="bg-white border border-gray-100 rounded-2xl p-6 shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300">
+                <div
+                    class="w-12 h-12 flex items-center justify-center rounded-full bg-[#ffebeb] text-[#ff0054] text-2xl mb-4 shadow-sm">
+                    <i class="ri-file-list-3-line"></i>
+                </div>
+                <h3 class="font-semibold text-[#111827] text-lg mb-1">Gestión de pedidos (OMS)</h3>
+                <p class="text-sm text-gray-500">Centralización de órdenes y ruteo inteligente.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="bg-[#fefcfd] py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <!-- Etiqueta -->
+            <span class="inline-block px-4 py-1 text-sm font-semibold bg-[#ffe4ed] text-[#ff0054] rounded-full mb-4">
+                Marcas que confían en nosotros
+            </span>
+
+            <!-- Título -->
+            <h2 class="text-3xl font-extrabold text-gray-900 mb-4">
+                El respaldo de marcas líderes
+            </h2>
+
+            <!-- Subtítulo -->
+            <p class="text-gray-600 mb-12 max-w-2xl mx-auto">
+                Las principales marcas del país confían en nosotros para gestionar su distribución de forma eficiente.
+            </p>
+
+            <!-- Grid de marcas -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+                <div
+                    class="rounded-xl text-sm font-semibold text-gray-800 py-4 px-6 shadow-md bg-gradient-to-tr from-pink-100 to-pink-200 hover:scale-105 hover:shadow-lg hover:brightness-105 transition">
+                    GLORIA
+                </div>
+                <div
+                    class="rounded-xl text-sm font-semibold text-gray-800 py-4 px-6 shadow-md bg-gradient-to-tr from-violet-100 to-indigo-200 hover:scale-105 hover:shadow-lg hover:brightness-105 transition">
+                    SAN FERNANDO
+                </div>
+                <div
+                    class="rounded-xl text-sm font-semibold text-gray-800 py-4 px-6 shadow-md bg-gradient-to-tr from-amber-100 to-orange-200 hover:scale-105 hover:shadow-lg hover:brightness-105 transition">
+                    ALICORP
+                </div>
+                <div
+                    class="rounded-xl text-sm font-semibold text-gray-800 py-4 px-6 shadow-md bg-gradient-to-tr from-emerald-100 to-green-200 hover:scale-105 hover:shadow-lg hover:brightness-105 transition">
+                    BACKUS
+                </div>
+                <div
+                    class="rounded-xl text-sm font-semibold text-gray-800 py-4 px-6 shadow-md bg-gradient-to-tr from-cyan-100 to-sky-200 hover:scale-105 hover:shadow-lg hover:brightness-105 transition">
+                    AJEPER
+                </div>
+                <div
+                    class="rounded-xl text-sm font-semibold text-gray-800 py-4 px-6 shadow-md bg-gradient-to-tr from-lime-100 to-lime-200 hover:scale-105 hover:shadow-lg hover:brightness-105 transition">
+                    CAMPOSOL
+                </div>
+                <div
+                    class="rounded-xl text-sm font-semibold text-gray-800 py-4 px-6 shadow-md bg-gradient-to-tr from-fuchsia-100 to-pink-200 hover:scale-105 hover:shadow-lg hover:brightness-105 transition">
+                    UNILEVER
+                </div>
+                <div
+                    class="rounded-xl text-sm font-semibold text-gray-800 py-4 px-6 shadow-md bg-gradient-to-tr from-blue-100 to-indigo-200 hover:scale-105 hover:shadow-lg hover:brightness-105 transition">
+                    PEPSICO
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="bg-gradient-to-br from-[#fefcfd] to-[#f6f6f9] py-24 px-4">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-12">
+
+            <!-- Imagen -->
+            <div class="flex justify-center items-center h-full">
+                <img src="https://themes.muffingroup.com/be/marketing2/wp-content/uploads/2022/06/marketing2-work-pic3.webp"
+                    alt="Experiencia" class="md:w-[80%]">
+            </div>
+
+            <!-- Contenido -->
+            <div>
+                <span
+                    class="inline-block bg-[#ffe5ed] text-[#ff0054] px-4 py-1.5 text-sm rounded-full font-semibold tracking-wide shadow-sm">
+                    Empresa de distribución horizontal
+                </span>
+
+                <h2 class="text-4xl md:text-5xl font-bold text-[#0b0b0b] mt-4 leading-tight">
+                    Nuestra experiencia en números
+                </h2>
+
+                <p class="text-gray-500 mt-4 max-w-xl">
+                    Acompañamos tanto a compañías consolidadas como a marcas emergentes. Nuestra experiencia se refleja
+                    en cifras que demuestran alcance, confiabilidad y capacidad de ejecución.
+                </p>
+
+                <section id="statsSection">
+                    <div class="grid grid-cols-2 gap-4 mt-10">
+
+                        <div class="bg-white rounded-2xl px-6 py-5 shadow-md border border-gray-100 text-center">
+                            <p class="stat text-3xl font-bold text-[#ff0054]" data-target="20">20</p>
+                            <p class="text-sm text-gray-500">Años de experiencia</p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl px-6 py-5 shadow-md border border-gray-100 text-center">
+                            <p class="stat text-3xl font-bold text-[#ff0054]" data-target="1000">1000</p>
+                            <p class="text-sm text-gray-500">Marcas atendidas</p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl px-6 py-5 shadow-md border border-gray-100 text-center">
+                            <p class="stat text-3xl font-bold text-[#ff0054]" data-target="20000000">20.000.000</p>
+                            <p class="text-sm text-gray-500">Productos gestionados/año</p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl px-6 py-5 shadow-md border border-gray-100 text-center">
+                            <p class="stat text-3xl font-bold text-[#ff0054]" data-target="24">24</p>
+                            <p class="text-sm text-gray-500">Ciudades con cobertura</p>
+                        </div>
+
+                    </div>
+                </section>
+
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="py-16 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <div class="relative w-full overflow-hidden">
+                <!-- Track -->
+                <div class="flex animate-slide gap-12 min-w-full">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg"
+                        class="h-12 object-contain transition" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+                        class="h-12 object-contain transition" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+                        class="h-12 object-contain transition" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Stack_Overflow_logo.svg"
+                        class="h-12 object-contain transition" />
+                    <!-- Duplicamos para bucle infinito -->
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg"
+                        class="h-12 object-contain transition" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg"
+                        class="h-12 object-contain transition" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg"
+                        class="h-12 object-contain transition" />
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/0/02/Stack_Overflow_logo.svg"
+                        class="h-12 object-contain transition" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-[#fef7f5] px-6 md:px-12 overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+
+            <!-- Texto -->
+            <div class="lg:w-1/2 relative">
+                <p class="text-sm font-bold text-[#ff0054] mb-2 flex items-center gap-2">
+                    <i class="ri-arrow-up-right-line text-sm"></i> GRUPO AUREN
+                </p>
+                <h2 class="text-4xl font-bold text-[#0b0b0b] leading-tight mb-4">
+                    Aumentaremos <br>
+                    sus ventas al triple
+                </h2>
+                <p class="text-[#0b0b0b] text-opacity-70">
+                    Nam ultricies curabitur sit scelerisque fames odio odio class s tincidunt sem lacus
+                    sodales consectetur sit suspendisse quisque consectetur tristique ante tempor
+                    curabitur fermentum neque curae in nostra.
+                </p>
+            </div>
+
+            <!-- Imagen -->
+            <div class="lg:w-1/2 flex justify-center relative">
+                <img src="./bg-2.png" alt="" class="absolute -top-[80px] max-w-[600px] opacity-30">
+
+                <div
+                    class="bg-[#ff0054] rounded-[200px] overflow-hidden w-[320px] h-[320px] flex items-center justify-center relative z-10">
+                    <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg" alt="Profile"
+                        class="object-cover w-[280px] h-[280px] rounded-full" />
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- AlpineJS -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
+    <section class="bg-[#fefcfd] py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <span class="inline-block px-4 py-1 text-sm font-semibold bg-[#ffe4ed] text-[#ff0054] rounded-full">
+                    Lo que dicen nuestros clientes
+                </span>
+                <h2 class="mt-4 text-3xl font-extrabold text-gray-900">
+                    La confianza se gana con resultados
+                </h2>
+            </div>
+
+            <!-- Carousel -->
+            <div x-data="carousel()" x-init="start()" class="relative overflow-hidden">
+                <div class="flex transition-all duration-700 ease-in-out"
+                    :style="`transform: translateX(-${current * 100}%);`">
+
+                    <!-- Slide 1 -->
+                    <div class="min-w-full grid grid-cols-1 md:grid-cols-2 gap-6 px-2">
+                        <!-- Card 1 -->
+                        <div class="bg-white border-l-4 border-[#ff0054] shadow-lg rounded-2xl p-6">
+                            <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                                “Entramos a nuevas zonas manteniendo un alto cumplimiento de entregas. El soporte y la
+                                visibilidad marcaron la diferencia.”
+                            </p>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-gray-200"></div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Gerente Comercial</p>
+                                    <p class="text-sm text-gray-500">Empresa de alimentos</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 2 -->
+                        <div class="bg-white border-l-4 border-[#ff0054] shadow-lg rounded-2xl p-6">
+                            <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                                “Los reportes en tiempo real y la coordinación con un solo operador simplificaron todo
+                                el proyecto.”
+                            </p>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-gray-200"></div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Jefe de Supply Chain</p>
+                                    <p class="text-sm text-gray-500">Bebidas y snacks</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Slide 2 -->
+                    <div class="min-w-full grid grid-cols-1 md:grid-cols-2 gap-6 px-2">
+                        <!-- Card 3 -->
+                        <div class="bg-white border-l-4 border-[#ff0054] shadow-lg rounded-2xl p-6">
+                            <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                                “Excelente acompañamiento en la distribución nacional. Su equipo siempre está
+                                disponible.”
+                            </p>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-gray-200"></div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Gerente de Logística</p>
+                                    <p class="text-sm text-gray-500">Retail Perú</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Card 4 -->
+                        <div class="bg-white border-l-4 border-[#ff0054] shadow-lg rounded-2xl p-6">
+                            <p class="text-gray-700 text-lg leading-relaxed mb-6">
+                                “Han sido clave para lanzar nuevos productos en regiones que antes no cubríamos.”
+                            </p>
+                            <div class="flex items-center gap-4">
+                                <div class="w-10 h-10 rounded-full bg-gray-200"></div>
+                                <div>
+                                    <p class="font-semibold text-gray-900">Directora Comercial</p>
+                                    <p class="text-sm text-gray-500">Industria cosmética</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Dots -->
+                <div class="flex justify-center gap-2 mt-6">
+                    <template x-for="(s, i) in slides" :key="i">
+                        <div :class="i === current ? 'bg-[#ff0054]' : 'bg-gray-300'"
+                            class="w-3 h-3 rounded-full transition-all duration-300 cursor-pointer"
+                            @click="current = i"></div>
+                    </template>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function carousel() {
+            return {
+                current: 0,
+                slides: [0, 1],
+                start() {
+                    setInterval(() => {
+                        this.current = (this.current + 1) % this.slides.length;
+                    }, 6000);
+                }
+            }
+        }
+    </script>
+
+
+
+    <section class="py-20 px-6 md:px-12 bg-white">
+        <div class="max-w-7xl mx-auto bg-white shadow-sm rounded-2xl p-10">
+            <div class="flex flex-col lg:flex-row gap-10">
+
+                <!-- Texto + Imagen -->
+                <div class="lg:w-1/2 flex flex-col justify-between">
+                    <div>
+                        <img src="https://cdn-icons-png.flaticon.com/512/1380/1380338.png" alt="Chat bubbles"
+                            class="w-24 mb-6">
+                        <h3 class="text-2xl font-bold text-[#0b0b0b] mb-4">
+                            <span class="text-[#0b0b0b]">Envíanos una pregunta.</span>
+                        </h3>
+                        <p class="text-[#0b0b0b] text-opacity-70 leading-relaxed">
+                            Nos pondremos en contacto contigo y te entregaremos nuestra propuesta completamente
+                            gratuita.
+                        </p>
+                    </div>
+                    <hr class="my-6 border-[#e4e4e4]">
+                    <div class="text-sm text-[#0b0b0b] text-opacity-70 flex flex-col md:flex-row justify-between gap-2">
+                        <p>Monday – Friday: 06:00 AM – 10:00 PM</p>
+                        <p>Saturday – Sunday: 08:00 AM – 08:00 PM</p>
+                    </div>
+                </div>
+
+                <!-- Formulario -->
+                <div class="lg:w-1/2">
+                    <form class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-[#0b0b0b]">Nombres y Apellidos *</label>
+                            <input type="text"
+                                class="mt-1 block w-full border-b border-[#e4c6c6] focus:outline-none py-2 bg-transparent">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-[#0b0b0b]">Celular *</label>
+                            <input type="text"
+                                class="mt-1 block w-full border-b border-[#e4c6c6] focus:outline-none py-2 bg-transparent">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-[#0b0b0b]">Correo electrónico *</label>
+                            <input type="email"
+                                class="mt-1 block w-full border-b border-[#e4c6c6] focus:outline-none py-2 bg-transparent">
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-medium text-[#0b0b0b]">Tu mensaje...</label>
+                            <textarea rows="3"
+                                class="mt-1 block w-full border-b border-[#e4c6c6] focus:outline-none py-2 bg-transparent"></textarea>
+                        </div>
+
+                        <button type="submit"
+                            class="mt-4 px-6 py-2 border-2 border-[#ff0054] text-[#ff0054] rounded-md bg-primary text-white transition">
+                            Enviar mensaje
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#1a1a1a] text-white pt-12 pb-6 px-6 md:px-12 text-sm text-left">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 items-center text-center">
+
+            <!-- SOBRE LA EMPRESA -->
+            <div>
+                <h4 class="uppercase text-gray-400 font-bold text-[15px] md:text-[16px] mb-1">SOBRE</h4>
+                <p class="font-semibold text-white">GRUPO AUREN</p>
+                <p class="mt-2 text-gray-400">
+                    Somos una tienda digital que busca acercar productos locales a todo Lima con rapidez, confianza y
+                    atención personalizada.
+                </p>
+                <p class="mt-2 text-gray-400">
+                    Trabajamos con productores y marcas para ofrecer precios justos y productos frescos.
+                </p>
+
+                <ul class="mt-4 space-y-2">
+                    <li class="flex items-center justify-center gap-2 text-[#f0ad4e]">
+                        <i class="ri-file-text-line"></i>
+                        <a href="#">Términos y condiciones</a>
+                    </li>
+                    <li class="flex items-center justify-center gap-2 text-[#f0ad4e]">
+                        <i class="ri-map-pin-line"></i>
+                        <a href="#">Mapa del sitio</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- MAPA DE SITIO -->
+            <div>
+                <h4 class="uppercase text-gray-400 font-bold text-[15px] md:text-[16px] mb-1">MAPA</h4>
+                <p class="font-semibold text-white">DE SITIO</p>
+                <ul class="mt-4 space-y-1 text-gray-400">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Mi cuenta</a></li>
+                    <li><a href="#">Nuestros locales</a></li>
+                    <li><a href="#">Preguntas frecuentes</a></li>
+                    <li><a href="#">Políticas de cookies</a></li>
+                    <li><a href="#">Políticas de devoluciones</a></li>
+                    <li><a href="#">Políticas de privacidad</a></li>
+                    <li><a href="#">Zonas de reparto</a></li>
+                </ul>
+            </div>
+
+            <!-- CONTACTO -->
+            <div>
+                <h4 class="uppercase text-gray-400 font-bold text-[15px] md:text-[16px] mb-1">CONTACTA</h4>
+                <p class="font-semibold text-white">CON NOSOTROS</p>
+                <ul class="mt-4 space-y-1 text-gray-400">
+                    <li class="flex items-center justify-center gap-2">
+                        <i class="ri-phone-line text-[#f0ad4e]"></i> 988 320 464
+                    </li>
+                    <li class="flex items-center justify-center gap-2">
+                        <i class="ri-phone-line text-[#f0ad4e]"></i> 988 320 464
+                    </li>
+                    <li class="flex items-center justify-center gap-2">
+                        <i class="ri-mail-line text-[#f0ad4e]"></i>
+                        <a href="mailto:ventas@blackversions.com">ventas@blackversions.com</a>
+                    </li>
+                </ul>
+
+                <!-- REDES -->
+                <div class="flex justify-center gap-3 mt-4 text-[#f0ad4e] text-xl">
+                    <i class="ri-facebook-line"></i>
+                    <i class="ri-instagram-line"></i>
+                    <i class="ri-twitter-line"></i>
+                    <i class="ri-youtube-line"></i>
+                    <i class="ri-pinterest-line"></i>
+                    <i class="ri-tiktok-line"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Divider -->
+        <div class="border-t border-[#333] mt-10 pt-4 text-center text-xs text-gray-500">
+            <p>&copy; El Mercadón – Todos los derechos reservados 2025 · <span class="text-[#f0ad4e]">Forjado por <a
+                        href="#" class="hover:underline">Wize</a></span></p>
+        </div>
+    </footer>
+
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.6.2/countUp.umd.js"></script>
+
+    <!-- Script para animación -->
+    <script>
+        const openMenu = document.getElementById('openMenu');
+        const closeMenu = document.getElementById('closeMenu');
+        const overlay = document.getElementById('mobileOverlay');
+
+        openMenu.addEventListener('click', () => {
+            overlay.classList.remove('translate-x-full');
+            overlay.classList.add('translate-x-0');
+        });
+
+        closeMenu.addEventListener('click', () => {
+            overlay.classList.remove('translate-x-0');
+            overlay.classList.add('translate-x-full');
+        });
+
+        window.addEventListener('scroll', function () {
+            const header = document.getElementById('mainHeader');
+            if (window.scrollY > 100) {
+                header.classList.add('bg-white', 'shadow-md');
+                header.classList.remove('bg-transparent');
+            } else {
+                header.classList.remove('bg-white', 'shadow-md');
+                header.classList.add('bg-transparent');
+            }
+        });
+    </script>
+
+    <script>
+        function animateCounter(el, target) {
+            let start = 0;
+            const duration = 1500;
+            const startTime = performance.now();
+
+            const update = (currentTime) => {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const value = Math.floor(progress * target);
+
+                el.textContent = target >= 10000
+                    ? value.toLocaleString('de-DE') // formateo con puntos
+                    : value;
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            };
+
+            requestAnimationFrame(update);
+        }
+
+        let statsAnimated = false;
+
+        function triggerStats() {
+            const section = document.getElementById('statsSection');
+            const rect = section.getBoundingClientRect();
+
+            if (!statsAnimated && rect.top < window.innerHeight && rect.bottom > 0) {
+                statsAnimated = true;
+                document.querySelectorAll('.stat').forEach(el => {
+                    const target = parseInt(el.dataset.target.replace(/\./g, ''));
+                    el.textContent = '0'; // reset visualmente antes de iniciar
+                    animateCounter(el, target);
+                });
+            }
+        }
+
+        window.addEventListener('scroll', triggerStats);
+        window.addEventListener('load', triggerStats);
+    </script>
+
+    <script>
+        const cursor = document.getElementById('custom-cursor');
+
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = `${e.clientX}px`;
+            cursor.style.top = `${e.clientY}px`;
+        });
+    </script>
+
+
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>AOS.init();</script>
+</body>
+
+</html>

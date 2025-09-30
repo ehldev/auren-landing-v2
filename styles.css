@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+body {
+    font-family: "Space Grotesk", sans-serif;
+    color: rgb(4, 6, 62) !important;
+}
+
+@keyframes floatY {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.float-y {
+    animation: floatY 2.5s ease-in-out infinite;
+    display: inline-block;
+    /* necesario para que transform funcione */
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.animate-slide {
+    animation: slide 30s linear infinite;
+}
+
+#custom-cursor {
+    transition: transform 0.08s ease-out;
+    transform: translate(-50%, -50%);
+}
