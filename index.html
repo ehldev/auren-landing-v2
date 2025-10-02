@@ -28,33 +28,41 @@
                         primary: '#ff0054',
                         dark: 'rgb(4, 6, 62)',
                         light: '#fefcfd',
+                        "app-blue": '#04063E',
+                        "app-text": '#908C8A',
+                        "app-yellow": '#FFAE01',
+                        "app-green": '#01B976',
+                        "app-cyan": '#09C6F4',
+                        "app-brown": '#351E29'
+                    },
+                },
+                container: {
+                    center: true, // opcional: centra el container
+                    padding: '1rem', // opcional: añade padding lateral
+                    screens: {
+                        sm: '100%',   // hasta este breakpoint ocupa todo
+                        md: '720px',
+                        lg: '720px',
+                        xl: '1140px',
+                        // '2xl': '1320px', // aquí ajustas el ancho máximo global
                     },
                 },
             }
         }
     </script>
+
 </head>
 
-<body class="bg-[var(--light)] text-[var(--dark)]">
-
-    <!-- <div id="custom-cursor"
-        class="fixed w-8 h-8 rounded-full border border-[#ff0054] pointer-events-none z-[9999] hidden lg:flex items-center justify-center">
-        <div class="w-2 h-2 rounded-full bg-[#ff0054]"></div>
-    </div> -->
-
-    <!-- Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor-halo"></div>
-
+<body>
     <div class="bg-gradient-to-br from-[#fef8f7] to-[#f7edeb]">
         <!-- Header superior -->
-        <header id="mainHeader" class="bg-white shadow-md w-full z-50 py-4 fixed top-0 left-0 right-0">
+        <header id="mainHeader" class="bg-white shadow-md w-full z-[100] py-4 fixed top-0 left-0 right-0">
             <div class="container mx-auto flex items-center justify-between px-4 lg:px-0">
                 <!-- Logo -->
                 <div class="flex items-center gap-2 text-xl font-bold text-[var(--dark)]">
                     <i class="ri-arrow-up-right-line text-primary text-lg"></i>
-                    <img src="https://grupoauren.pe/wp-content/uploads/2021/10/AUREN-PORTADA-LOGO.png" alt="Grupo Auren"
-                        class="w-[120px]">
+                    <img src="https://blackversions.com/wp-content/uploads/2025/10/logo-grupo-auren.png"
+                        alt="Grupo Auren" class="max-w-[200px]">
                 </div>
 
                 <!-- Botón hamburguesa -->
@@ -68,10 +76,11 @@
                     <a href="#nosotros" class="text-[15px] hover:text-primary">Nosotros</a>
                     <a href="#services" class="text-[15px] hover:text-primary">Servicios</a>
                     <a href="#blog" class="text-[15px] hover:text-primary">Blog</a>
-                    <a href="#contacto"
-                        class="inline-block border-2 border-primary text-primary font-semibold px-3 py-1 rounded-md bg-primary text-white transition">
+                    <button type="button"
+                        class="inline-block border-2 border-primary text-primary font-semibold px-3 py-1 rounded-md bg-primary text-white transition"
+                        onclick="openModal()">
                         <i class="ri-calendar-line mr-2"></i> Agendar reunión
-                    </a>
+                    </button>
                 </nav>
             </div>
         </header>
@@ -96,23 +105,24 @@
 
             <img src="./img-1.png" alt="" class="absolute -bottom-[100px] w-[300px]">
 
-            <div data-aos="fade-right">
-                <p class="text-xs font-[800] text-primary mb-2 flex items-center gap-1">
-                    <i class="ri-arrow-up-right-line text-xs"></i> Distribuidora de consumo masivo en Lima
+            <div>
+                <p class="text-[12px] font-[800] uppercase text-primary mb-2 flex items-center gap-1" data-aos="fade-right">
+                    <i class="ri-arrow-up-right-line"></i> Distribuidora de consumo masivo en Lima
                 </p>
-                <h1 class="text-4xl md:text-[48px] font-bold leading-tight mt-5 mb-6">
+                <h1 class="text-4xl md:text-[48px] font-bold leading-[44px] mt-2 mb-6" data-aos="fade-right" data-aos-delay="200">
                     Impulsamos la distribución de tus productos con
-                    <span class="text-primary rounded-md inline-block">eficiencia y confianza</span>
+                    <span class="text-primary rounded-md inline-block" data-aos="fade-right" data-aos-delay="250">eficiencia y confianza</span>
                 </h1>
-                <p>
+                <p data-aos="fade-right" data-aos-delay="150">
                     Hacemos que tus productos lleguen con la eficiencia que necesitas y la confianza que tu negocio
                     merece,
                     integrando diversas categorías en una sola operación de distribución.
                 </p>
-                <a href="https://www.google.com"
-                    class="mt-8 inline-block border-2 border-primary text-primary font-semibold px-5 py-2 rounded-md bg-primary text-white transition">
+                <button type="button"
+                    class="mt-8 relative z-50 inline-block border-2 border-primary text-primary font-semibold px-5 py-2 rounded-md bg-primary text-white transition"
+                    onclick="openModal()">
                     <i class="ri-calendar-line mr-2"></i> Agendar reunión
-                </a>
+                </button>
             </div>
 
             <!-- RIGHT -->
@@ -161,21 +171,31 @@
         </section>
     </div>
 
-    <section class="py-16 bg-white">
+    <!-- Marcas -->
+    <section class="pt-16 bg-white">
         <div class="container mx-auto px-4 lg:px-0">
-            <div id="logo-marquee" class="relative overflow-hidden" data-speed="60">
+            <div class="text-center">
+                <h2 class="text-[40px] font-bold leading-[40px]" data-aos="fade-right">
+                    El respaldo de marcas líderes
+                </h2>
+
+                <p class="text-gray-500 mt-4" data-aos="fade-right">Cubrimos la cadena completa de distribución
+                    horizontal.</p>
+            </div>
+
+            <div id="logo-marquee" class="mt-8 relative overflow-hidden" data-speed="60">
                 <ul id="marquee-track"
                     class="flex items-center gap-12 whitespace-nowrap will-change-transform select-none">
                     <!-- Set ORIGINAL (solo una vez) -->
-                    <li class="shrink-0">
+                    <li class="shrink-0" data-aos="fade-in">
                         <img src="https://grupoauren.pe/wp-content/uploads/2021/10/grupo-auren-altomayo.png"
                             class="h-20 w-auto pointer-events-none" />
                     </li>
-                    <li class="shrink-0">
+                    <li class="shrink-0" data-aos="fade-in">
                         <img src="https://grupoauren.pe/wp-content/uploads/2021/10/Gloria.png"
                             class="h-20 w-auto pointer-events-none" />
                     </li>
-                    <li class="shrink-0">
+                    <li class="shrink-0" data-aos="fade-in">
                         <img src="https://grupoauren.pe/wp-content/uploads/2021/10/Asset-5@144x.png"
                             class="h-20 w-auto pointer-events-none" />
                     </li>
@@ -184,49 +204,49 @@
         </div>
     </section>
 
-
-    <section id="nosotros" class="bg-[#f9f9fc] pt-8 pb-16 px-6 lg:px-20">
-        <div class="container mx-auto flex flex-col-reverse lg:flex-row items-center gap-10">
+    <!-- Nosotros -->
+    <section id="nosotros" class="bg-white pt-16">
+        <div class="container mx-auto flex flex-col-reverse lg:flex-row items-center gap-10 px-4 lg:px-0">
 
             <!-- Texto -->
             <div class="w-full lg:w-1/2 space-y-6">
-                <span
-                    class="inline-block px-4 py-1 text-sm font-semibold text-[#9c2140] bg-[#fbe9ee] rounded-full shadow-sm">
+                <span class="inline-block px-4 py-1 text-sm font-semibold text-white bg-transparent rounded-full"
+                    data-aos="fade-right">
                     ¿Por qué elegirnos como tu distribuidora?
                 </span>
 
-                <h2 class="text-3xl lg:text-4xl font-bold text-gray-900 leading-snug">
+                <h2 class="text-[40px] font-bold leading-[40px]" data-aos="fade-right">
                     Un operador integral que impulsa tu crecimiento
                 </h2>
 
-                <p class="text-gray-600">
+                <p class="text-gray-600" data-aos="fade-right">
                     Integramos logística, tecnología y ejecución de campo para que tu marca tenga más eficiencia,
                     control y resultados reales.
                 </p>
 
                 <ul class="space-y-4">
-                    <li class="flex items-start gap-3">
+                    <li class="flex items-start gap-3" data-aos="fade-in">
                         <span class="text-pink-600 text-xl">✔️</span>
                         <p><strong>Un solo operador, múltiples categorías</strong>
                             <span class="text-gray-600">— modelo horizontal que reduce
                                 fricciones y aumenta la eficiencia.</span>
                         </p>
                     </li>
-                    <li class="flex items-start gap-3">
+                    <li class="flex items-start gap-3" data-aos="fade-in">
                         <span class="text-pink-600 text-xl">✔️</span>
                         <p><strong>Entregas confiables y medibles</strong>
                             <span class="text-gray-600">— altos niveles de cumplimiento (OTIF) con
                                 procesos controlados.</span>
                         </p>
                     </li>
-                    <li class="flex items-start gap-3">
+                    <li class="flex items-start gap-3" data-aos="fade-in">
                         <span class="text-pink-600 text-xl">✔️</span>
                         <p><strong>Data y reportes unificados</strong>
                             <span class="text-gray-600">— visibilidad en tiempo real para tomar
                                 decisiones con seguridad.</span>
                         </p>
                     </li>
-                    <li class="flex items-start gap-3">
+                    <li class="flex items-start gap-3" data-aos="fade-in">
                         <span class="text-pink-600 text-xl">✔️</span>
                         <p><strong>Optimización de costos y complejidad</strong>
                             <span class="text-gray-600">— centralizar con un socio reduce
@@ -239,7 +259,7 @@
             <!-- Imagen -->
             <div class="w-full lg:w-1/2 flex flex-col justify-center">
                 <img src="https://themes.muffingroup.com/be/marketing2/wp-content/uploads/2022/06/marketing2-work-pic1.webp"
-                    alt="" class="max-w-[100%] mx-auto">
+                    alt="" class="max-w-[100%] mx-auto" data-aos="fade-left">
                 <!-- <section id="statsSection">
                     <div class="grid grid-cols-2 gap-4">
 
@@ -270,160 +290,135 @@
         </div>
     </section>
 
-
-    <section id="services" class="py-20 bg-white">
+    <!-- Servicios -->
+    <section id="services" class="my-10 py-16 bg-[#F9F0EC]">
         <!-- Título principal -->
-        <div class="container mx-auto text-center mb-16" data-aos="fade-up">
-            <p class="text-sm font-bold text-[#ff0054] mb-2 flex items-center justify-center gap-2">
-                <i class="ri-arrow-up-right-line text-sm"></i> Nuestros servicios
+        <div class="container mx-auto text-left mb-16 px-4 lg:px-0" data-aos="fade-up">
+            <p class="text-sm font-bold text-[#ff0054] uppercase mb-2">
+                Nuestros servicios
             </p>
-            <h2 class="text-4xl md:text-5xl font-bold text-[#0b0b0b] leading-tight">
+            <h2 class="text-[40px] font-bold leading-[40px]">
                 Soluciones integrales <br> para cada etapa
             </h2>
 
-            <p class="text-gray-500 mt-8">Cubrimos la cadena completa de distribución horizontal.</p>
+            <p class="text-gray-500 mt-4">Cubrimos la cadena completa de distribución horizontal.</p>
         </div>
 
         <!-- 3 columnas -->
-        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+        <div class="container px-4 lg:px-0 mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
 
             <!-- Item 1 -->
-            <div class="flex flex-col items-center hover:bg-[#f8fafc] py-4 px-3 rounded-md" data-aos="fade-up"
-                data-aos-delay="100">
-                <span class="text-xs font-bold text-white bg-[#ff0054] px-3 py-1 rounded-full mb-4">01</span>
-                <i class="ri-truck-line text-[40px] text-[#0b0b0b] mb-4"></i>
-                <h3 class="text-lg font-semibold text-[#0b0b0b] leading-tight">Distribución <br> y transporte</h3>
-                <p class="text-sm text-gray-500 mt-2">Cobertura confiable con foco en cumplimiento de entregas.</p>
+            <div class="service-card flex flex-col items-start rounded-md" data-aos="fade-up" data-aos-delay="100">
+                <span
+                    class="bg-[#FFAE01] text-xs font-bold text-left text-white inline-block w-[74px] px-3 py-1 rounded-md mb-4">01</span>
+                <div class="content text-left">
+                    <img src="https://themes.muffingroup.com/be/marketing2/wp-content/uploads/2022/06/marketing2-home-icon2.svg"
+                        alt="" class="my-8">
+                    <h3 class="text-[24px] font-[400] leading-[24px]">Distribución <br> y transporte
+                    </h3>
+                    <p class="text-sm text-gray-500 text-left mt-6 max-w-[80%]">Cobertura confiable con foco en
+                        cumplimiento de
+                        entregas.</p>
+                </div>
                 <button type="button"
-                    class="mt-6 text-xl text-[#0b0b0b] w-[32px] h-[32px] rounded-full flex justify-center items-center hover:bg-primary hover:text-white">
+                    class="mt-8 text-xl w-[32px] h-[32px] rounded-full flex justify-center items-center hover:bg-primary hover:text-white">
                     <i class="ri-arrow-right-line"></i>
                 </button>
             </div>
 
             <!-- Item 2 -->
-            <div class="flex flex-col items-center hover:bg-[#f8fafc] py-4 px-3 rounded-md" data-aos="fade-up"
-                data-aos-delay="200">
-                <span class="text-xs font-bold text-white bg-[#fbbc05] px-3 py-1 rounded-full mb-4">02</span>
-                <i class="ri-archive-2-line text-[40px] text-[#0b0b0b] mb-4"></i>
-                <h3 class="text-lg font-semibold text-[#0b0b0b] leading-tight">Almacenaje <br> & picking</h3>
-                <p class="text-sm text-gray-500 mt-2">Inventarios controlados y preparación de pedidos eficiente.</p>
+            <div class="service-card flex flex-col items-start rounded-md" data-aos="fade-up" data-aos-delay="100">
+                <span
+                    class="text-xs font-bold text-left text-white bg-[#01B976] inline-block w-[74px] px-3 py-1 rounded-md mb-4">01</span>
+                <div class="content text-left">
+                    <img src="https://themes.muffingroup.com/be/marketing2/wp-content/uploads/2022/06/marketing2-home-icon3.svg"
+                        alt="" class="my-8">
+                    <h3 class="text-[24px] font-[400] leading-[24px]">Almacenaje <br> & picking
+                    </h3>
+                    <p class="text-sm text-gray-500 text-left mt-6 max-w-[80%]">Inventarios controlados y preparación de
+                        pedidos
+                        eficiente.</p>
+                </div>
                 <button type="button"
-                    class="mt-6 text-xl text-[#0b0b0b] w-[32px] h-[32px] rounded-full flex justify-center items-center hover:bg-primary hover:text-white">
+                    class="mt-8 text-xl w-[32px] h-[32px] rounded-full flex justify-center items-center hover:bg-primary hover:text-white">
                     <i class="ri-arrow-right-line"></i>
                 </button>
             </div>
 
             <!-- Item 3 -->
-            <div class="flex flex-col items-center hover:bg-[#f8fafc] py-4 px-3 rounded-md" data-aos="fade-up"
-                data-aos-delay="300">
-                <span class="text-xs font-bold text-white bg-[#00b386] px-3 py-1 rounded-full mb-4">03</span>
-                <i class="ri-group-line text-[40px] text-[#0b0b0b] mb-4"></i>
-                <h3 class="text-lg font-semibold text-[#0b0b0b] leading-tight">Herramientas <br> tecnológicas</h3>
-                <p class="text-sm text-gray-500 mt-2">Trazabilidad y análisis en tiempo real.</p>
+            <div class="service-card flex flex-col items-start rounded-md" data-aos="fade-up" data-aos-delay="100">
+                <span
+                    class="bg-[#09C6F4] text-xs font-bold text-left text-white inline-block w-[74px] px-3 py-1 rounded-md mb-4">03</span>
+                <div class="content text-left">
+                    <img src="https://themes.muffingroup.com/be/marketing2/wp-content/uploads/2022/06/marketing2-home-icon4.svg"
+                        alt="" class="my-8">
+                    <h3 class="text-[24px] font-[400] leading-[24px]">Herramientas <br> y tecnológicas
+                    </h3>
+                    <p class="text-sm text-gray-500 text-left mt-6 max-w-[90%]">Trazabilidad y análisis en tiempo real.
+                    </p>
+                </div>
                 <button type="button"
-                    class="mt-6 text-xl text-[#0b0b0b] w-[32px] h-[32px] rounded-full flex justify-center items-center hover:bg-primary hover:text-white">
+                    class="mt-8 text-xl w-[32px] h-[32px] rounded-full flex justify-center items-center hover:bg-primary hover:text-white">
                     <i class="ri-arrow-right-line"></i>
                 </button>
             </div>
 
             <!-- Item 4 -->
-            <div class="flex flex-col items-center hover:bg-[#f8fafc] py-4 px-3 rounded-md" data-aos="fade-up"
-                data-aos-delay="400">
-                <span class="text-xs font-bold text-white bg-[#ff0054] px-3 py-1 rounded-full mb-4">04</span>
-                <i class="ri-bar-chart-box-line text-[40px] text-[#0b0b0b] mb-4"></i>
-                <h3 class="text-lg font-semibold text-[#0b0b0b] leading-tight">Rastrillajes <br> de campo</h3>
-                <p class="text-sm text-gray-500 mt-2">Visibilidad directa de ejecución en puntos de venta.</p>
+            <div class="service-card flex flex-col items-start rounded-md mt-4" data-aos="fade-up" data-aos-delay="100">
+                <span
+                    class="bg-[#FFAE01] text-xs font-bold text-left text-white inline-block w-[74px] px-3 py-1 rounded-md mb-4">04</span>
+                <div class="content text-left">
+                    <img src="https://themes.muffingroup.com/be/marketing2/wp-content/uploads/2022/06/marketing2-home-icon2.svg"
+                        alt="" class="my-8">
+                    <h3 class="text-[24px] font-[400] leading-[24px]">Rastrillajes <br> de campo
+                    </h3>
+                    <p class="text-sm text-gray-500 text-left  mt-6 max-w-[80%]">Visibilidad directa de ejecución en
+                        puntos de venta.</p>
+                </div>
                 <button type="button"
-                    class="mt-6 text-xl text-[#0b0b0b] w-[32px] h-[32px] rounded-full flex justify-center items-center hover:bg-primary hover:text-white">
+                    class="mt-8 text-xl w-[32px] h-[32px] rounded-full flex justify-center items-center hover:bg-primary hover:text-white">
                     <i class="ri-arrow-right-line"></i>
                 </button>
             </div>
 
             <!-- Item 5 -->
-            <div class="flex flex-col items-center hover:bg-[#f8fafc] py-4 px-3 rounded-md" data-aos="fade-up"
-                data-aos-delay="400">
-                <span class="text-xs font-bold text-white bg-[#fbbc05] px-3 py-1 rounded-full mb-4">05</span>
-                <i class="ri-bar-chart-box-line text-[40px] text-[#0b0b0b] mb-4"></i>
-                <h3 class="text-lg font-semibold text-[#0b0b0b] leading-tight">Atención a <br> PDV & merchandising</h3>
-                <p class="text-sm text-gray-500 mt-2">Reposición, exhibición y auditoría en tienda.</p>
+            <div class="service-card flex flex-col items-start rounded-md mt-4" data-aos="fade-up" data-aos-delay="100">
+                <span
+                    class="text-xs font-bold text-left text-white bg-[#01B976] inline-block w-[74px] px-3 py-1 rounded-md mb-4">05</span>
+                <div class="content text-left">
+                    <img src="https://themes.muffingroup.com/be/marketing2/wp-content/uploads/2022/06/marketing2-home-icon3.svg"
+                        alt="" class="my-8">
+                    <h3 class="text-[24px] font-[400] leading-[24px]">Atención a <br> PDV & merchandising
+                    </h3>
+                    <p class="text-sm text-gray-500 text-left mt-6 max-w-[80%]">Reposición, exhibición y auditoría en
+                        tienda.</p>
+                </div>
                 <button type="button"
-                    class="mt-6 text-xl text-[#0b0b0b] w-[32px] h-[32px] rounded-full flex justify-center items-center hover:bg-primary hover:text-white">
+                    class="mt-8 text-xl w-[32px] h-[32px] rounded-full flex justify-center items-center hover:bg-primary hover:text-white">
                     <i class="ri-arrow-right-line"></i>
                 </button>
             </div>
 
             <!-- Item 6 -->
-            <div class="flex flex-col items-center hover:bg-[#f8fafc] py-4 px-3 rounded-md" data-aos="fade-up"
-                data-aos-delay="400">
-                <span class="text-xs font-bold text-white bg-[#00b386] px-3 py-1 rounded-full mb-4">06</span>
-                <i class="ri-bar-chart-box-line text-[40px] text-[#0b0b0b] mb-4"></i>
-                <h3 class="text-lg font-semibold text-[#0b0b0b] leading-tight">Gestión de <br> pedidos (OMS)</h3>
-                <p class="text-sm text-gray-500 mt-2">Centralización de órdenes y ruteo inteligente.</p>
+            <div class="service-card flex flex-col items-start rounded-md mt-4" data-aos="fade-up" data-aos-delay="100">
+                <span
+                    class="bg-[#09C6F4] text-xs font-bold text-left text-white inline-block w-[74px] px-3 py-1 rounded-md mb-4">06</span>
+                <div class="content text-left">
+                    <img src="https://themes.muffingroup.com/be/marketing2/wp-content/uploads/2022/06/marketing2-home-icon4.svg"
+                        alt="" class="my-8">
+                    <h3 class="text-[24px] font-[400] leading-[24px]">Gestión de <br> pedidos (OMS)
+                    </h3>
+                    <p class="text-sm text-gray-500 text-left  mt-6 max-w-[80%]">Centralización de órdenes y ruteo
+                        inteligente.</p>
+                </div>
                 <button type="button"
-                    class="mt-6 text-xl text-[#0b0b0b] w-[32px] h-[32px] rounded-full flex justify-center items-center hover:bg-primary hover:text-white">
+                    class="mt-8 text-xl w-[32px] h-[32px] rounded-full flex justify-center items-center hover:bg-primary hover:text-white">
                     <i class="ri-arrow-right-line"></i>
                 </button>
             </div>
 
         </div>
     </section>
-
-    <section class="bg-[#fefcfd] py-10">
-        <div class="container mx-auto px-4 lg:px-0 text-center">
-            <!-- Etiqueta -->
-            <span class="inline-block px-4 py-1 text-sm font-semibold bg-[#ffe4ed] text-[#ff0054] rounded-full mb-4">
-                Marcas que confían en nosotros
-            </span>
-
-            <!-- Título -->
-            <h2 class="text-3xl font-extrabold text-gray-900 mb-4">
-                El respaldo de marcas líderes
-            </h2>
-
-            <!-- Subtítulo -->
-            <!-- <p class="text-gray-600 mb-12 max-w-2xl mx-auto">
-                Las principales marcas del país confían en nosotros para gestionar su distribución de forma eficiente.
-            </p> -->
-
-            <!-- Grid de marcas -->
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-                <div
-                    class="rounded-xl text-sm font-semibold text-gray-800 py-4 px-6 shadow-md bg-gradient-to-tr from-pink-100 to-pink-200 hover:scale-105 hover:shadow-lg hover:brightness-105 transition">
-                    GLORIA
-                </div>
-                <div
-                    class="rounded-xl text-sm font-semibold text-gray-800 py-4 px-6 shadow-md bg-gradient-to-tr from-violet-100 to-indigo-200 hover:scale-105 hover:shadow-lg hover:brightness-105 transition">
-                    SAN FERNANDO
-                </div>
-                <div
-                    class="rounded-xl text-sm font-semibold text-gray-800 py-4 px-6 shadow-md bg-gradient-to-tr from-amber-100 to-orange-200 hover:scale-105 hover:shadow-lg hover:brightness-105 transition">
-                    ALICORP
-                </div>
-                <div
-                    class="rounded-xl text-sm font-semibold text-gray-800 py-4 px-6 shadow-md bg-gradient-to-tr from-emerald-100 to-green-200 hover:scale-105 hover:shadow-lg hover:brightness-105 transition">
-                    BACKUS
-                </div>
-                <div
-                    class="rounded-xl text-sm font-semibold text-gray-800 py-4 px-6 shadow-md bg-gradient-to-tr from-cyan-100 to-sky-200 hover:scale-105 hover:shadow-lg hover:brightness-105 transition">
-                    AJEPER
-                </div>
-                <div
-                    class="rounded-xl text-sm font-semibold text-gray-800 py-4 px-6 shadow-md bg-gradient-to-tr from-lime-100 to-lime-200 hover:scale-105 hover:shadow-lg hover:brightness-105 transition">
-                    CAMPOSOL
-                </div>
-                <div
-                    class="rounded-xl text-sm font-semibold text-gray-800 py-4 px-6 shadow-md bg-gradient-to-tr from-fuchsia-100 to-pink-200 hover:scale-105 hover:shadow-lg hover:brightness-105 transition">
-                    UNILEVER
-                </div>
-                <div
-                    class="rounded-xl text-sm font-semibold text-gray-800 py-4 px-6 shadow-md bg-gradient-to-tr from-blue-100 to-indigo-200 hover:scale-105 hover:shadow-lg hover:brightness-105 transition">
-                    PEPSICO
-                </div>
-            </div>
-        </div>
-    </section>
-
-
 
     <!-- <section class="py-20 bg-white overflow-hidden">
         <div class="container mx-auto grid grid-cols-1 lg:grid-cols-2 items-center gap-12">
@@ -472,7 +467,81 @@
         </div>
     </section> -->
 
-    <section class="bg-gradient-to-br from-[#fefcfd] to-[#f6f6f9] py-24 px-4">
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+
+            <!-- Título -->
+            <div class="text-center mb-12">
+                <span
+                    class="inline-block px-4 py-1 text-sm font-semibold bg-[#fce8ed] text-[#d33864] rounded-full mb-4" data-aos="fade-right">
+                    Un grupo que respalda tu operación
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-[#0b0b0b]" data-aos="fade-right" data-aos-delay="100">
+                    Cuatro empresas, una sola misión: impulsar el crecimiento de tu marca
+                </h2>
+                <p class="mt-4 text-gray-600" data-aos="fade-right" data-aos-delay="150">
+                    Empresas integradas que operan bajo una misma visión para asegurar experiencia, recursos y
+                    continuidad en cada proyecto.
+                </p>
+            </div>
+
+            <!-- Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Card 1 -->
+                <div class="bg-primary text-white rounded-xl p-6 flex items-center justify-between gap-4" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Empresa 1</h3>
+                        <p class="text-sm opacity-70 mb-4">Quis est metus at sodales imperdiet.</p>
+                        <span class="text-2xl">→</span>
+                    </div>
+                    <img src="https://themes.muffingroup.com/be/marketing2/wp-content/uploads/2022/06/marketing2-about-pic1.webp" alt="Persona meditando"
+                        class="max-w-[100px]">
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-app-green rounded-xl p-6 flex items-center justify-between gap-4 text-white"
+                    data-aos="fade-up" data-aos-delay="200">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Empresa 2</h3>
+                        <p class="text-sm opacity-80 mb-4">Quis est metus at sodales imperdiet.</p>
+                        <span class="text-2xl">→</span>
+                    </div>
+                    <img src="https://themes.muffingroup.com/be/marketing2/wp-content/uploads/2022/06/marketing2-contact-pic1.webp" alt="Persona laptop"
+                        class="max-w-[100px]">
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-app-yellow text-white rounded-xl p-6 flex items-center justify-between gap-4"
+                    data-aos="fade-up" data-aos-delay="300">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Empresa 3</h3>
+                        <p class="text-sm opacity-70 mb-4">Información clara para tus decisiones.</p>
+                        <span class="text-2xl">→</span>
+                    </div>
+                    <img src="https://themes.muffingroup.com/be/marketing2/wp-content/uploads/2022/06/marketing2-about-pic1.webp" alt="Datos" class="max-w-[100px]">
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-app-cyan text-white rounded-xl p-6 flex items-center justify-between gap-4"
+                    data-aos="fade-up" data-aos-delay="400">
+                    <div>
+                        <h3 class="text-lg font-semibold mb-2">Empresa 4</h3>
+                        <p class="text-sm opacity-70 mb-4">Impulsamos el crecimiento de tu marca.</p>
+                        <span class="text-2xl">→</span>
+                    </div>
+                    <img src="https://themes.muffingroup.com/be/marketing2/wp-content/uploads/2022/06/marketing2-contact-pic1.webp" alt="Crecimiento"
+                        class="max-w-[100px]">
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="bg-gradient-to-br from-[#fefcfd] to-[#f6f6f9] py-16 px-4">
         <div class="container mx-auto grid md:grid-cols-2 items-center gap-12">
 
             <!-- Imagen -->
@@ -484,15 +553,15 @@
             <!-- Contenido -->
             <div>
                 <span
-                    class="inline-block bg-[#ffe5ed] text-[#ff0054] px-4 py-1.5 text-sm rounded-full font-semibold tracking-wide shadow-sm">
+                    class="inline-block bg-[#ffe5ed] text-[#ff0054] px-4 py-1.5 text-sm rounded-full font-semibold tracking-wide shadow-sm" data-aos="fade-right" data-aos-delay="100">
                     Empresa de distribución horizontal
                 </span>
 
-                <h2 class="text-4xl md:text-5xl font-bold text-[#0b0b0b] mt-4 leading-tight">
+                <h2 class="text-[40px] font-bold mt-4 leading-[40px]" data-aos="fade-right" data-aos-delay="150">
                     Nuestra experiencia en números
                 </h2>
 
-                <p class="text-gray-500 mt-4 max-w-xl">
+                <p class="text-gray-500 mt-4 max-w-xl" data-aos="fade-right" data-aos-delay="200">
                     Acompañamos tanto a compañías consolidadas como a marcas emergentes. Nuestra experiencia se refleja
                     en cifras que demuestran alcance, confiabilidad y capacidad de ejecución.
                 </p>
@@ -500,24 +569,30 @@
                 <section id="statsSection">
                     <div class="grid grid-cols-2 gap-4 mt-10">
 
-                        <div class="bg-white rounded-2xl px-6 py-5 shadow-md border border-gray-100 text-center">
-                            <p class="stat text-3xl font-bold text-[#ff0054]" data-target="20">20</p>
-                            <p class="text-sm text-gray-500">Años de experiencia</p>
+                        <div class="bg-transparent rounded-2xl text-left" data-aos="fade-right" data-aos-delay="100">
+                            <p class="bg-primary text-white font-medium inline-block w-[50px] rounded-md text-[24px] py-1 px-3 stat text-3xl font-bold"
+                                data-target="20">20</p>
+                            <p class="text-[20px] text-gray-500 mt-3">Años de experiencia</p>
                         </div>
 
-                        <div class="bg-white rounded-2xl px-6 py-5 shadow-md border border-gray-100 text-center">
-                            <p class="stat text-3xl font-bold text-[#ff0054]" data-target="1000">1000</p>
-                            <p class="text-sm text-gray-500">Marcas atendidas</p>
+                        <div class="bg-transparent rounded-2xl text-left" data-aos="fade-right" data-aos-delay="150">
+                            <p
+                                class="bg-app-green text-white font-medium inline-block w-[50px] rounded-md text-[24px] py-1 px-3 stat text-3xl font-bold">
+                                1K</p>
+                            <p class="text-[20px] text-gray-500 mt-3">Marcas atendidas</p>
                         </div>
 
-                        <div class="bg-white rounded-2xl px-6 py-5 shadow-md border border-gray-100 text-center">
-                            <p class="stat text-3xl font-bold text-[#ff0054]" data-target="20000000">20.000.000</p>
-                            <p class="text-sm text-gray-500">Productos gestionados/año</p>
+                        <div class="bg-transparent rounded-2xl text-left mt-3" data-aos="fade-left" data-aos-delay="200">
+                            <p
+                                class="bg-app-yellow text-white font-medium inline-block w-[75px] rounded-md text-[24px] py-1 px-3 stat text-3xl font-bold">
+                                20M</p>
+                            <p class="text-[20px] text-gray-500 mt-3">Productos gestionados/año</p>
                         </div>
 
-                        <div class="bg-white rounded-2xl px-6 py-5 shadow-md border border-gray-100 text-center">
-                            <p class="stat text-3xl font-bold text-[#ff0054]" data-target="24">24</p>
-                            <p class="text-sm text-gray-500">Ciudades con cobertura</p>
+                        <div class="bg-transparent rounded-2xl text-left mt-3" data-aos="fade-left" data-aos-delay="250">
+                            <p class="bg-app-cyan text-white font-medium inline-block w-[50px] rounded-md text-[24px] py-1 px-3 stat text-3xl font-bold"
+                                data-target="12">12</p>
+                            <p class="text-[20px] text-gray-500 mt-3">Ciudades con <br> cobertura</p>
                         </div>
 
                     </div>
@@ -528,134 +603,145 @@
         </div>
     </section>
 
-    <section class="bg-[#fefcfd] py-20">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Header -->
-            <div class="text-center mb-12">
-                <span class="inline-block px-4 py-1 text-sm font-semibold bg-[#ffe4ed] text-[#ff0054] rounded-full">
-                    Lo que dicen nuestros clientes
-                </span>
-                <h2 class="mt-4 text-3xl font-extrabold text-gray-900">
-                    La confianza se gana con resultados
-                </h2>
-            </div>
+    <section class="bg-white px-6 md:px-12 py-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-[40px] font-bold mt-4 leading-[40px]" data-aos="fade-right">
+                Opiniones de nuestros clientes
+            </h2>
+            <p class="text-gray-500 mt-4" data-aos="fade-right" data-aos-delay="100">
+                Descubre cómo hemos transformado los negocios en palabras de nuestros clientes...
+            </p>
 
-            <!-- Carousel -->
-            <div x-data="carousel()" x-init="start()" class="relative overflow-hidden">
-                <div class="flex transition-all duration-700 ease-in-out"
-                    :style="`transform: translateX(-${current * 100}%);`">
+            <!-- Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-10">
 
-                    <!-- Slide 1 -->
-                    <div class="min-w-full grid grid-cols-1 md:grid-cols-2 gap-6 px-2">
-                        <!-- Card 1 -->
-                        <div class="bg-white border-l-4 border-[#ff0054] shadow-lg rounded-2xl p-6">
-                            <p class="text-gray-700 text-lg leading-relaxed mb-6">
-                                “Entramos a nuevas zonas manteniendo un alto cumplimiento de entregas. El soporte y la
-                                visibilidad marcaron la diferencia.”
-                            </p>
-                            <div class="flex items-center gap-4">
-                                <div class="w-10 h-10 rounded-full bg-gray-200"></div>
-                                <div>
-                                    <p class="font-semibold text-gray-900">Gerente Comercial</p>
-                                    <p class="text-sm text-gray-500">Empresa de alimentos</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 2 -->
-                        <div class="bg-white border-l-4 border-[#ff0054] shadow-lg rounded-2xl p-6">
-                            <p class="text-gray-700 text-lg leading-relaxed mb-6">
-                                “Los reportes en tiempo real y la coordinación con un solo operador simplificaron todo
-                                el proyecto.”
-                            </p>
-                            <div class="flex items-center gap-4">
-                                <div class="w-10 h-10 rounded-full bg-gray-200"></div>
-                                <div>
-                                    <p class="font-semibold text-gray-900">Jefe de Supply Chain</p>
-                                    <p class="text-sm text-gray-500">Bebidas y snacks</p>
-                                </div>
-                            </div>
+                <!-- Card 1 -->
+                <div class="bg-app-brown text-white rounded-xl p-6 pb-8 relative" data-aos="fade-right" data-aos-delay="100">
+                    <img src="https://wize.pe/wp-content/uploads/2024/12/icon-1.png"
+                        class="w-6 h-6 absolute top-4 right-4" alt="Comillas" />
+                    <div class="mb-4 flex flex-col gap-3">
+                        <img src="https://wize.pe/wp-content/uploads/2024/12/user-3.svg" class="w-10 h-10 rounded-full"
+                            alt="Camila F." />
+                        <div>
+                            <p class="font-semibold text-white leading-none my-3">Empresa de alimentos</p>
+                            <p class="text-sm text-gray-400">Gerente Comercial</p>
                         </div>
                     </div>
-
-                    <!-- Slide 2 -->
-                    <div class="min-w-full grid grid-cols-1 md:grid-cols-2 gap-6 px-2">
-                        <!-- Card 3 -->
-                        <div class="bg-white border-l-4 border-[#ff0054] shadow-lg rounded-2xl p-6">
-                            <p class="text-gray-700 text-lg leading-relaxed mb-6">
-                                “Excelente acompañamiento en la distribución nacional. Su equipo siempre está
-                                disponible.”
-                            </p>
-                            <div class="flex items-center gap-4">
-                                <div class="w-10 h-10 rounded-full bg-gray-200"></div>
-                                <div>
-                                    <p class="font-semibold text-gray-900">Gerente de Logística</p>
-                                    <p class="text-sm text-gray-500">Retail Perú</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Card 4 -->
-                        <div class="bg-white border-l-4 border-[#ff0054] shadow-lg rounded-2xl p-6">
-                            <p class="text-gray-700 text-lg leading-relaxed mb-6">
-                                “Han sido clave para lanzar nuevos productos en regiones que antes no cubríamos.”
-                            </p>
-                            <div class="flex items-center gap-4">
-                                <div class="w-10 h-10 rounded-full bg-gray-200"></div>
-                                <div>
-                                    <p class="font-semibold text-gray-900">Directora Comercial</p>
-                                    <p class="text-sm text-gray-500">Industria cosmética</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <p class="text-sm leading-relaxed font-medium">
+                        Entramos a nuevas zonas manteniendo un alto cumplimiento de entregas. El soporte y la
+                        visibilidad marcaron la diferencia.
+                    </p>
                 </div>
 
-                <!-- Dots -->
-                <div class="flex justify-center gap-2 mt-6">
-                    <template x-for="(s, i) in slides" :key="i">
-                        <div :class="i === current ? 'bg-[#ff0054]' : 'bg-gray-300'"
-                            class="w-3 h-3 rounded-full transition-all duration-300 cursor-pointer"
-                            @click="current = i"></div>
-                    </template>
+                <!-- Card 2 -->
+                <div class="bg-app-brown text-white rounded-xl p-6 pb-8 relative" data-aos="fade-right" data-aos-delay="150">
+                    <img src="https://wize.pe/wp-content/uploads/2024/12/icon-1.png"
+                        class="w-6 h-6 absolute top-4 right-4" alt="Comillas" />
+                    <div class="mb-4 flex flex-col gap-3">
+                        <img src="https://wize.pe/wp-content/uploads/2024/12/user-3.svg" class="w-10 h-10 rounded-full"
+                            alt="Camila F." />
+                        <div>
+                            <p class="font-semibold text-white leading-none my-3">Jefe de Supply Chain</p>
+                            <p class="text-sm text-gray-400">Bebidas y snacks</p>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed font-medium">
+                        Los reportes en tiempo real y la coordinación con un solo operador simplificaron todo el
+                        proyecto.
+                    </p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-app-brown text-white rounded-xl p-6 pb-8 relative" data-aos="fade-left" data-aos-delay="100">
+                    <img src="https://wize.pe/wp-content/uploads/2024/12/icon-1.png"
+                        class="w-6 h-6 absolute top-4 right-4" alt="Comillas" />
+                    <div class="mb-4 flex flex-col gap-3">
+                        <img src="https://wize.pe/wp-content/uploads/2024/12/user-3.svg" class="w-10 h-10 rounded-full"
+                            alt="Camila F." />
+                        <div>
+                            <p class="font-semibold text-white leading-none my-3">Empresa de alimentos</p>
+                            <p class="text-sm text-gray-400">Gerente Comercial</p>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed font-medium">
+                        Entramos a nuevas zonas manteniendo un alto cumplimiento de entregas. El soporte y la
+                        visibilidad marcaron la diferencia.
+                    </p>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-app-brown text-white rounded-xl p-6 pb-8 relative" data-aos="fade-left" data-aos-delay="150">
+                    <img src="https://wize.pe/wp-content/uploads/2024/12/icon-1.png"
+                        class="w-6 h-6 absolute top-4 right-4" alt="Comillas" />
+                    <div class="mb-4 flex flex-col gap-3">
+                        <img src="https://wize.pe/wp-content/uploads/2024/12/user-3.svg" class="w-10 h-10 rounded-full"
+                            alt="Camila F." />
+                        <div>
+                            <p class="font-semibold text-white leading-none my-3">Jefe de Supply Chain</p>
+                            <p class="text-sm text-gray-400">Bebidas y snacks</p>
+                        </div>
+                    </div>
+                    <p class="text-sm leading-relaxed font-medium">
+                        Los reportes en tiempo real y la coordinación con un solo operador simplificaron todo el
+                        proyecto.
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="py-20 bg-[#fef7f5] px-6 md:px-12 overflow-hidden">
-        <div class="container mx-auto flex flex-col lg:flex-row items-center justify-between gap-12">
+    <!-- Modal Overlay -->
+    <div id="modalOverlay" class="fixed inset-0 z-[120] hidden flex items-center justify-center min-h-screen">
 
-            <!-- Texto -->
-            <div class="lg:w-1/2 relative">
-                <p class="text-sm font-bold text-[#ff0054] mb-2 flex items-center gap-2">
-                    <i class="ri-arrow-up-right-line text-sm"></i> GRUPO AUREN
-                </p>
-                <h2 class="text-4xl font-bold text-[#0b0b0b] leading-tight mb-4">
-                    Aumentaremos <br>
-                    sus ventas al triple
-                </h2>
-                <p class="text-[#0b0b0b] text-opacity-70">
-                    Nam ultricies curabitur sit scelerisque fames odio odio class s tincidunt sem lacus
-                    sodales consectetur sit suspendisse quisque consectetur tristique ante tempor
-                    curabitur fermentum neque curae in nostra.
-                </p>
+        <!-- Fondo oscuro -->
+        <div onclick="closeModal()"
+            class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 opacity-0"
+            id="modalBackdrop"></div>
+
+        <!-- Modal -->
+        <div id="modalContent"
+            class="relative bg-app-brown text-white max-w-xl w-full mx-4 rounded-2xl shadow-2xl p-6 sm:p-10 z-10 opacity-0 scale-95 translate-y-10 transition-all duration-300">
+
+            <!-- Botón cerrar -->
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 text-white text-2xl hover:text-[#ff0054]">&times;</button>
+
+            <!-- Resto del contenido... -->
+            <h2 class="text-xl sm:text-2xl font-bold mb-2">Agendar reunión con <span class="text-[#ff0054]">Grupo</span>
+                Auren</h2>
+
+            <div class="flex items-center gap-2 mt-4 mb-3">
+                <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" class="w-5 h-5" />
+                <span class="text-lg font-bold text-white">+51 999 999 999</span>
             </div>
+            <p class="text-sm text-gray-300 mb-6">Solicita una reunión gratuita según tu rubro. <br>(L-V
+                9AM-6PM / Sáb 9AM-1PM)</p>
 
-            <!-- Imagen -->
-            <div class="lg:w-1/2 flex justify-center relative">
-                <img src="./bg-2.png" alt="" class="absolute -top-[80px] max-w-[600px] opacity-30">
-
-                <div
-                    class="bg-[#ff0054] rounded-[200px] overflow-hidden w-[320px] h-[320px] flex items-center justify-center relative z-10">
-                    <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg" alt="Profile"
-                        class="object-cover w-[280px] h-[280px] rounded-full" />
+            <!-- Formulario -->
+            <form class="space-y-4 text-sm text-black">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input type="text" placeholder="Nombre"
+                        class="rounded-md px-4 py-2 w-full outline-none border border-gray-300" required>
+                    <input type="email" placeholder="Correo electrónico"
+                        class="rounded-md px-4 py-2 w-full outline-none border border-gray-300" required>
+                    <input type="text" placeholder="RUC"
+                        class="rounded-md px-4 py-2 w-full outline-none border border-gray-300" required>
+                    <input type="text" placeholder="Teléfono"
+                        class="rounded-md px-4 py-2 w-full outline-none border border-gray-300" required>
                 </div>
-            </div>
+                <textarea rows="3"
+                    placeholder="Por favor, indica tu rubro y cuántas facturas, boletas y guías emites mensualmente."
+                    class="rounded-md px-4 py-2 w-full outline-none border border-gray-300"></textarea>
 
+                <button type="submit"
+                    class="w-full bg-[#ffbe2e] hover:bg-[#f3ad0c] text-[#0b0b0b] font-bold py-2 rounded-md transition">
+                    Solicitar
+                </button>
+            </form>
         </div>
-    </section>
+    </div>
+
+
 
     <!-- AlpineJS -->
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
@@ -674,83 +760,22 @@
         }
     </script>
 
-
-
-    <section id="contacto" class="py-20 bg-white">
-        <div class="container mx-auto bg-white shadow-sm rounded-2xl p-10">
-            <div class="flex flex-col lg:flex-row gap-10">
-
-                <!-- Texto + Imagen -->
-                <div class="lg:w-1/2 flex flex-col justify-between">
-                    <div>
-                        <img src="https://themes.muffingroup.com/be/marketing2/wp-content/uploads/2022/06/marketing2-contact-pic2.webp"
-                            alt="Chat bubbles" class="max-w-[200px] mb-6">
-                        <h3 class="text-2xl font-bold text-[#0b0b0b] mb-4">
-                            <span class="text-[#0b0b0b]">Envíanos una pregunta.</span>
-                        </h3>
-                        <p class="text-[#0b0b0b] text-opacity-70 leading-relaxed">
-                            Nos pondremos en contacto contigo y te entregaremos <br> nuestra propuesta completamente
-                            gratuita.
-                        </p>
-                    </div>
-                    <hr class="my-6 border-[#e4e4e4]">
-                    <div class="text-sm text-[#0b0b0b] text-opacity-70 flex flex-col md:flex-row justify-between gap-2">
-                        <p>Lunes – Viernes: 9am - 5pm</p>
-                        <p>Sábados: 9am - 12pm</p>
-                    </div>
-                </div>
-
-                <!-- Formulario -->
-                <div class="lg:w-1/2">
-                    <form class="space-y-6">
-                        <div>
-                            <label class="block text-sm font-medium text-[#0b0b0b]">Nombres y Apellidos *</label>
-                            <input type="text"
-                                class="mt-1 block w-full border-b border-[#e4c6c6] focus:outline-none py-2 bg-transparent">
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-medium text-[#0b0b0b]">Celular *</label>
-                            <input type="text"
-                                class="mt-1 block w-full border-b border-[#e4c6c6] focus:outline-none py-2 bg-transparent">
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-medium text-[#0b0b0b]">Correo electrónico *</label>
-                            <input type="email"
-                                class="mt-1 block w-full border-b border-[#e4c6c6] focus:outline-none py-2 bg-transparent">
-                        </div>
-
-                        <div>
-                            <label class="block text-sm font-medium text-[#0b0b0b]">Tu mensaje...</label>
-                            <textarea rows="3"
-                                class="mt-1 block w-full border-b border-[#e4c6c6] focus:outline-none py-2 bg-transparent"></textarea>
-                        </div>
-
-                        <button type="submit"
-                            class="mt-4 px-6 py-2 border-2 border-[#ff0054] text-[#ff0054] rounded-md bg-primary text-white transition">
-                            Enviar mensaje
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <footer class="border-t border-slate-800 bg-[#351E29] text-slate-300">
         <div class="container mx-auto px-4 lg:px-0 py-12">
             <div class="grid grid-cols-1 gap-y-10 md:grid-cols-12 md:gap-x-10">
                 <!-- ABOUT (col-span-5) -->
                 <div class="md:col-span-6 flex flex-col">
                     <a href="#" class="inline-flex items-center gap-2 font-semibold text-white">
-                        <img src="https://grupoauren.pe/wp-content/uploads/2021/10/AUREN-PORTADA-LOGO.png"
-                            alt="Grupo Auren" class="w-[120px]">
+                        <img src="https://blackversions.com/wp-content/uploads/2025/10/logo-grupo-auren.png"
+                            alt="Grupo Auren" class="max-w-[200px]">
                     </a>
 
                     <div class="mt-4 text-[15px] leading-7 max-w-prose md:pr-8">
                         <p class="mt-3">
-                            Grupo Auren es una <b>empresa de distribución de consumo masivo en Lima</b>. Operamos un modelo de
-                            <b>distribución horizontal</b> que integra múltiples categorías y marcas para brindar soluciones
+                            Grupo Auren es una <b>empresa de distribución de consumo masivo en Lima</b>. Operamos un
+                            modelo de
+                            <b>distribución horizontal</b> que integra múltiples categorías y marcas para brindar
+                            soluciones
                             eficientes y confiables. Acompañamos a compañías consolidadas y a marcas emergentes con una
                             operación diseñada para crecer.
                         </p>
@@ -821,12 +846,16 @@
                 <p>© <span id="ft-year"></span> Grupo Auren. Todos los derechos reservados</p>
 
                 <nav class="flex flex-wrap items-center gap-x-4 gap-y-2">
-                    <a href="/"
-                        class="hover:text-white">Términos y condiciones</a>
+                    <a href="/" class="hover:text-white">Términos y condiciones</a>
                 </nav>
             </div>
         </div>
     </footer>
+
+    <button type="button" class="fixed bottom-[30px] right-[30px]">
+        <img src="https://reinodelvalle.pe/_nuxt/img/whatsapp-floating.5affb43.png" alt=""
+            class="max-w-[192px] transition transform hover:scale-95 duration-200 ease-in-out">
+    </button>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.6.2/countUp.umd.js"></script>
     <!-- AOS -->
@@ -895,13 +924,6 @@
     </script>
 
     <script>
-        // const cursor = document.getElementById('custom-cursor');
-
-        // document.addEventListener('mousemove', (e) => {
-        //     cursor.style.left = `${e.clientX}px`;
-        //     cursor.style.top = `${e.clientY}px`;
-        // });
-
         (function () {
             const container = document.getElementById('logo-marquee');
             const track = document.getElementById('marquee-track');
@@ -962,52 +984,37 @@
             container.addEventListener('mouseenter', () => { paused = true; });
             container.addEventListener('mouseleave', () => { paused = false; });
 
-            // Pausar cuando la pestaña no está visible (ahorra CPU)
-            // document.addEventListener('visibilitychange', () => {
-            //     paused = document.hidden;
-            //     if (!paused && !rafId) rafId = requestAnimationFrame(step);
-            // });
-
-            // // Recalcular en resize (con debounce)
-            // let resizeT;
-            // window.addEventListener('resize', () => {
-            //     clearTimeout(resizeT);
-            //     resizeT = setTimeout(start, 150);
-            // });
-
             start();
         })();
-
-        // Cursor personalizado
-        const cur = document.querySelector('.cursor');
-        const halo = document.querySelector('.cursor-halo');
-        let x = innerWidth / 2, y2 = innerHeight / 2, tx = x, ty = y2;
-        const ease = 0.18;
-        function raf() {
-            x += (tx - x) * ease; y2 += (ty - y2) * ease;
-            cur.style.transform = `translate(${tx}px, ${ty}px) translate(-50%,-50%)`;
-            halo.style.transform = `translate(${x}px, ${y2}px) translate(-50%,-50%)`;
-            requestAnimationFrame(raf);
-        }
-        requestAnimationFrame(raf);
-        addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; });
-
-        // estado "link" del cursor
-        const setLinkState = (on) => document.body.classList.toggle('cursor--link', on);
-        document.querySelectorAll('a, button, .linkish, [role="button"]').forEach(el => {
-            el.addEventListener('mouseenter', () => setLinkState(true));
-            el.addEventListener('mouseleave', () => setLinkState(false));
-        });
-
-        // Accesibilidad: reactivar cursor nativo si usa teclado (Tab)
-        addEventListener('keydown', (e) => {
-            if (e.key === 'Tab') {
-                document.body.style.cursor = 'auto';
-                cur.style.display = 'none';
-                halo.style.display = 'none';
-            }
-        });
     </script>
+
+    <script>
+        function openModal() {
+            const overlay = document.getElementById('modalOverlay');
+            const content = document.getElementById('modalContent');
+            const backdrop = document.getElementById('modalBackdrop');
+
+            overlay.classList.remove('hidden');
+            setTimeout(() => {
+                backdrop.classList.remove('opacity-0');
+                content.classList.remove('opacity-0', 'scale-95', 'translate-y-10');
+            }, 10);
+        }
+
+        function closeModal() {
+            const overlay = document.getElementById('modalOverlay');
+            const content = document.getElementById('modalContent');
+            const backdrop = document.getElementById('modalBackdrop');
+
+            backdrop.classList.add('opacity-0');
+            content.classList.add('opacity-0', 'scale-95', 'translate-y-10');
+
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+            }, 300);
+        }
+    </script>
+
 </body>
 
 </html>
