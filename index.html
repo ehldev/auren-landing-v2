@@ -73,7 +73,7 @@
                 <!-- Navegación Desktop -->
                 <nav class="hidden md:flex items-center gap-8 text-sm font-semibold uppercase">
                     <a href="#" class="text-[15px] hover:text-primary">Portada</a>
-                    <a href="#nosotros" class="text-[15px] hover:text-primary">Nosotros</a>
+                    <a href="sobre-nosotros.html" class="text-[15px] hover:text-primary">Nosotros</a>
                     <a href="#services" class="text-[15px] hover:text-primary">Servicios</a>
                     <a href="#blog" class="text-[15px] hover:text-primary">Blog</a>
                     <button type="button"
@@ -93,7 +93,7 @@
             </button>
 
             <a href="#" class="text-[15px] hover:text-primary">Portada</a>
-            <a href="#nosotros" class="text-[15px] hover:text-primary">Nosotros</a>
+            <a href="sobre-nosotros.html" class="text-[15px] hover:text-primary">Nosotros</a>
             <a href="#services" class="text-[15px] hover:text-primary">Servicios</a>
             <a href="#" class="text-[15px] hover:text-primary">Blog</a>
         </div>
@@ -476,8 +476,9 @@
         </div>
     </section> -->
 
+    <!-- Empresas -->
     <section class="py-20 bg-white">
-        <div class="container mx-auto px-4">
+        <div class="container mx-auto px-4 lg:px-0">
 
             <!-- Título -->
             <div class="text-left mb-12">
@@ -489,7 +490,7 @@
                     Cuatro empresas, una sola misión: <br> <span class="text-primary">Impulsar el crecimiento de tu
                         marca</span>
                 </h2>
-                <p class="mt-4 text-gray-600" data-aos="fade-right" data-aos-delay="150">
+                <p class="mt-4" data-aos="fade-right" data-aos-delay="150">
                     Empresas integradas que operan bajo una misma visión para asegurar experiencia, recursos y
                     continuidad en cada proyecto.
                 </p>
@@ -880,7 +881,9 @@
     <!-- AOS -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 
-    <script>AOS.init();</script>
+    <script>AOS.init({
+            once: true
+        });</script>
 
     <!-- Script para animación -->
     <script>
