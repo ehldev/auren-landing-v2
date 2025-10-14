@@ -9,6 +9,9 @@
     <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet" />
     <link href="https://unpkg.com/aos@next/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="./styles.css">
+
+    <script src="./fslightbox.js"></script>
+
     <!-- <style>
     :root {
       --primary: #ff0054;
@@ -24,9 +27,12 @@
         tailwind.config = {
             theme: {
                 extend: {
+                    animation: {
+                        'ping-slow': 'ping 2.5s cubic-bezier(0, 0, 0.2, 1) infinite'
+                    },
                     colors: {
-                        primary: '#ff0054',
-                        dark: 'rgb(4, 6, 62)',
+                        primary: '#D3295E',
+                        dark: '#090C66',
                         light: '#fefcfd',
                         "app-blue": '#04063E',
                         "app-text": '#908C8A',
@@ -59,11 +65,11 @@
         <header id="mainHeader" class="bg-white shadow-md w-full z-[100] py-4 fixed top-0 left-0 right-0">
             <div class="container mx-auto flex items-center justify-between px-4 lg:px-0">
                 <!-- Logo -->
-                <div class="flex items-center gap-2 text-xl font-bold text-[var(--dark)]">
+                <a href="index.html" class="flex items-center gap-2 text-xl font-bold text-[var(--dark)]">
                     <i class="ri-arrow-up-right-line text-primary text-lg"></i>
                     <img src="https://blackversions.com/wp-content/uploads/2025/10/logo-grupo-auren.png"
                         alt="Grupo Auren" class="max-w-[250px]">
-                </div>
+                </a>
 
                 <!-- Botón hamburguesa -->
                 <button id="openMenu" class="md:hidden text-2xl text-primary">
@@ -72,9 +78,9 @@
 
                 <!-- Navegación Desktop -->
                 <nav class="hidden md:flex items-center gap-8 text-sm font-semibold uppercase">
-                    <a href="#" class="text-[15px] hover:text-primary">Portada</a>
+                    <a href="index.html" class="text-[15px] hover:text-primary">Portada</a>
                     <a href="#nosotros" class="text-[15px] hover:text-primary">Nosotros</a>
-                    <a href="#services" class="text-[15px] hover:text-primary">Servicios</a>
+                    <a href="index.html#servicios" class="text-[15px] hover:text-primary">Servicios</a>
                     <a href="#blog" class="text-[15px] hover:text-primary">Blog</a>
                     <button type="button"
                         class="inline-block border-2 border-primary text-primary font-semibold px-3 py-1 rounded-md bg-primary text-white transition"
@@ -87,102 +93,131 @@
 
         <!-- Menú Móvil Slide -->
         <div id="mobileOverlay"
-            class="fixed inset-0 bg-white uppercase z-50 flex flex-col items-center justify-center gap-y-6 text-xl font-semibold text-[var(--dark)] transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
+            class="fixed inset-0 bg-white uppercase z-[100] flex flex-col items-center justify-center gap-y-6 text-xl font-semibold text-[var(--dark)] transform translate-x-full transition-transform duration-300 ease-in-out md:hidden">
             <button id="closeMenu" class="absolute top-4 right-6 text-3xl text-primary">
                 <i class="ri-close-line"></i>
             </button>
 
-            <a href="#" class="text-[15px] hover:text-primary">Portada</a>
+            <a href="index.html" class="text-[15px] hover:text-primary">Portada</a>
             <a href="#nosotros" class="text-[15px] hover:text-primary">Nosotros</a>
-            <a href="#services" class="text-[15px] hover:text-primary">Servicios</a>
+            <a href="index.html#servicios" class="text-[15px] hover:text-primary">Servicios</a>
             <a href="#" class="text-[15px] hover:text-primary">Blog</a>
         </div>
 
-        <!-- HERO -->
+        <!-- Sección Banner con fondo e ícono de reproducción -->
         <section
-            class="relative container px-4 lg:px-0 mx-auto pt-28 pb-28 md:pt-[140px] grid md:grid-cols-2 gap-4 items-center overflow-hidden">
-            <!-- LEFT -->
+            class="relative h-screen bg-cover bg-center flex items-center justify-start text-white pt-28 pb-28 md:pt-[200px]"
+            style="background-image: url('https://supply.ancorathemes.com/wp-content/uploads/2025/09/custom-img-049-copyright.jpg');">
+            <div class="absolute inset-0 bg-black/50"></div>
 
-            <img src="./img-1.png" alt="" class="absolute -bottom-[100px] w-[300px]">
-
-            <div>
-                <p class="text-[12px] font-[800] uppercase text-transparent mb-2 flex items-center gap-1"
-                    data-aos="fade-right">
-                    <i class="ri-arrow-up-right-line"></i> Distribuidora de consumo masivo en Lima
-                </p>
-                <h1 class="text-4xl md:text-[48px] font-bold leading-[44px] mt-2 mb-6" data-aos="fade-right"
-                    data-aos-delay="200">
-                    Conócenos <br> Somos
-                    <span class="text-primary rounded-md inline-block" data-aos="fade-right" data-aos-delay="250">Grupo
-                        Auren</span>
+            <div class="relative z-10 container mx-auto px-4 lg:px-0" data-aos="fade-right">
+                <h1 class="text-5xl md:text-6xl font-bold leading-tight max-w-xl">
+                    <span class="text-white">Conócenos</span><br>
+                    Somos <br class="lg:hidden"> <span class="text-primary">Grupo Auren</span>
                 </h1>
-                <p data-aos="fade-right" data-aos-delay="150">
+
+                <p class="mt-6 text-lg text-white/80 max-w-md">
                     Somos un grupo empresarial peruano que integra compañías especializadas en distribución y servicios
                     de consumo masivo. Crecimos paso a paso, sumando capacidades, equipos y cobertura para dar solidez y
                     continuidad a cada proyecto.
                 </p>
-                <button type="button"
-                    class="mt-8 relative z-50 inline-block border-2 border-primary text-primary font-semibold px-5 py-2 rounded-md bg-primary text-white transition"
-                    onclick="openModal()">
-                    <i class="ri-calendar-line mr-2"></i> Agendar reunión
-                </button>
+
+                <!-- <button onclick="openVideoModal()" class="lg:hidden z-10 group mt-8">
+                    <div class="bg-primary rounded-full p-6 shadow-lg hover:scale-105 transition-transform">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                    </div>
+                </button> -->
+
+                <div class="relative flex items-center justify-center lg:hidden z-10 group mt-24">
+                    <button onclick="openVideoModal()"
+                        class="z-10 bg-pink-600 text-white w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center text-2xl shadow-lg hover:bg-pink-700 transition duration-300">
+                        ▶
+                    </button>
+
+                    <!-- Aura animada -->
+                    <span
+                        class="absolute w-16 h-16 md:w-20 md:h-20 rounded-full animate-ping-slow bg-pink-500/50 z-0"></span>
+                </div>
             </div>
 
-            <!-- RIGHT -->
-            <div class="relative flex justify-center items-center pt-28 md:pt-0" data-aos="fade-left">
-                <!-- <img src="/images/girl.png" alt="Marketing Girl" class="w-[260px] md:w-[320px] z-10" /> -->
-
-                <!-- ICONOS -->
-                <div class="absolute top-10 md:top-6 left-20 bg-white rounded-xl p-2 shadow-lg z-20 float-y">
-                    <i class="ri-bar-chart-fill text-2xl text-[#ffb700]"></i>
+            <!-- Botón de reproducción circular -->
+            <!-- <button onclick="openVideoModal()"
+                class="hidden lg:block lg:absolute lg:right-[300px] lg:bottom-[150px] z-10 group">
+                <div class="bg-primary rounded-full p-6 shadow-lg hover:scale-105 transition-transform">
+                    <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                    </svg>
                 </div>
-                <div class="absolute top-10 right-20 bg-white rounded-xl p-2 shadow-lg z-20 float-y">
-                    <i class="ri-pie-chart-2-fill text-2xl text-[#00b974]"></i>
+            </button> -->
+
+            <div class="hidden lg:block lg:absolute lg:right-[300px] lg:bottom-[150px] z-10 group">
+                <div class="relative flex items-center justify-center">
+                    <button onclick="openVideoModal()"
+                        class="z-10 bg-pink-600 text-white w-16 h-16 md:w-20 md:h-20 rounded-full flex items-center justify-center text-2xl shadow-lg hover:bg-pink-700 transition duration-300">
+                        ▶
+                    </button>
+
+                    <!-- Aura animada -->
+                    <span
+                        class="absolute w-16 h-16 md:w-20 md:h-20 rounded-full animate-ping-slow bg-pink-500/50 z-0"></span>
                 </div>
-                <div
-                    class="absolute -bottom-[80px] right-32 md:bottom-0 bg-white rounded-xl p-2 shadow-lg z-20 float-y">
-                    <i class="ri-coins-fill text-2xl text-[#00c3ff]"></i>
-                </div>
-
-                <div class="relative w-[350px] h-[350px] rounded-full overflow-hidden mx-auto">
-                    <!-- Mitad izquierda (roja con imagen) -->
-                    <div class="absolute top-0 left-0 w-1/2 h-full overflow-hidden">
-                        <img src="https://crowdytheme.com/wp/arolax/web-design-agencey/wp-content/uploads/sites/15/2024/07/Group-1000003642-150x300.png"
-                            class="w-full h-full object-cover mix-blend-multiply bg-red-600" />
-                    </div>
-
-                    <!-- Mitad derecha (imagen normal) -->
-                    <div class="absolute top-0 right-0 w-1/2 h-full overflow-hidden">
-                        <img src="https://crowdytheme.com/wp/arolax/web-design-agencey/wp-content/uploads/sites/15/2024/06/1-1.jpg"
-                            class="w-full h-full object-cover" />
-                    </div>
-
-                    <!-- Botón de video -->
-                    <div class="absolute bottom-6 right-[-30px] flex items-center gap-2">
-                        <button class="w-12 h-12 rounded-full bg-black text-white flex items-center justify-center">
-                            <i class="ri-play-fill text-2xl"></i>
-                        </button>
-                        <span class="text-xs font-semibold text-black">WATCH VIDEO</span>
-                    </div>
-
-                    <!-- Decoraciones (opcional) -->
-                    <div class="absolute top-4 left-4 w-2 h-2 bg-black rounded-full"></div>
-                    <div class="absolute top-10 left-10 text-black text-2xl">〰</div>
-                </div>
-
             </div>
         </section>
     </div>
 
+    <!-- Modal de Video -->
+    <div id="videoModal" class="fixed inset-0 z-[9999] bg-black/80 hidden items-center justify-center">
+        <div class="relative w-full h-full aspect-video flex items-center justify-center">
+            <div class="w-[80%] h-[80%] relative">
+                <iframe id="youtubeFrame" class="w-full h-full rounded-xl shadow-2xl" src="" title="YouTube video"
+                    allow="autoplay; encrypted-media" allowfullscreen>
+                </iframe>
+                <!-- Botón cerrar -->
+                <button onclick="closeVideoModal()"
+                    class="absolute -top-4 -right-4 bg-white text-black text-xl font-bold rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:bg-gray-200 transition-all duration-300">
+                    ✕
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function openVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('youtubeFrame');
+            iframe.src = 'https://www.youtube.com/embed/YOUTUBE_ID?autoplay=1';
+            modal.classList.remove('hidden');
+        }
+
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const iframe = document.getElementById('youtubeFrame');
+            iframe.src = '';
+            modal.classList.add('hidden');
+        }
+
+        // Cerrar con "Esc"
+        window.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeVideoModal();
+            }
+        });
+
+        // Cerrar haciendo click fuera del video
+        document.getElementById('videoModal').addEventListener('click', function (e) {
+            if (e.target === this) closeVideoModal();
+        });
+    </script>
+
+
+
     <section class="py-20 bg-white">
         <div class="container mx-auto px-4 lg:px-0">
 
-            <!-- Título -->
             <div class="text-left mb-12">
-                <!-- <span
-                    class="inline-block px-4 py-1 text-sm font-semibold bg-[#fce8ed] text-[#d33864] rounded-full mb-4" data-aos="fade-right">
-                    Un grupo que respalda tu operación
-                </span> -->
                 <h2 class="text-[40px] leading-[40px] font-bold" data-aos="fade-right" data-aos-delay="100">
                     Nuestras<span class="text-primary"> empresas</span>
                 </h2>
@@ -192,53 +227,28 @@
                 </p>
             </div>
 
-            <!-- Cards -->
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-                <!-- Card 1 -->
                 <div class="bg-primary text-white rounded-xl p-6 flex items-center justify-center gap-4"
                     data-aos="fade-up" data-aos-delay="100">
-                    <!-- <div>
-                        <h3 class="text-lg font-semibold mb-2">AUREN</h3>
-                        <p class="text-sm opacity-70 mb-4">Quis est metus at sodales imperdiet.</p>
-                        <span class="text-2xl">→</span>
-                    </div> -->
                     <img src="./images/logos-auren/logo-auren.png" alt="AUREN"
                         class="max-w-[100%] hover:scale-95 transition-all">
                 </div>
 
-                <!-- Card 2 -->
                 <div class="bg-app-green rounded-xl p-6 flex items-center justify-center gap-4 text-white"
                     data-aos="fade-up" data-aos-delay="200">
-                    <!-- <div>
-                        <h3 class="text-lg font-semibold mb-2">AURENLAC</h3>
-                        <p class="text-sm opacity-80 mb-4">Quis est metus at sodales imperdiet.</p>
-                        <span class="text-2xl">→</span>
-                    </div> -->
                     <img src="./images/logos-auren/logo-aurenlac.png" alt="AURENLAC"
                         class="max-w-[100%] hover:scale-95 transition-all">
                 </div>
 
-                <!-- Card 3 -->
                 <div class="bg-app-yellow text-white rounded-xl p-6 flex items-center justify-center gap-4"
                     data-aos="fade-up" data-aos-delay="300">
-                    <!-- <div>
-                        <h3 class="text-lg font-semibold mb-2">AURENNET</h3>
-                        <p class="text-sm opacity-70 mb-4">Información clara para tus decisiones.</p>
-                        <span class="text-2xl">→</span>
-                    </div> -->
                     <img src="./images/logos-auren/logo-aurennet.png" alt="AURENNET"
                         class="max-w-[100%] hover:scale-95 transition-all">
                 </div>
 
-                <!-- Card 4 -->
                 <div class="bg-app-cyan text-white rounded-xl p-6 flex items-center justify-center gap-4"
                     data-aos="fade-up" data-aos-delay="400">
-                    <!-- <div>
-                        <h3 class="text-lg font-semibold mb-2">DIPROSA</h3>
-                        <p class="text-sm opacity-70 mb-4">Impulsamos el crecimiento de tu marca.</p>
-                        <span class="text-2xl">→</span>
-                    </div> -->
                     <img src="./images/logos-auren/logo-diprosa.png" alt="DIPROSA"
                         class="max-w-[100%] hover:scale-95 transition-all">
                 </div>
@@ -247,19 +257,17 @@
         </div>
     </section>
 
-    <section class="bg-white pb-16">
+    <!-- <section class="bg-white pb-16">
         <div class="container mx-auto px-4 lg:px-0 flex flex-col items-center lg:flex-row" data-aos="fade-up">
 
-            <!-- Imagen del gerente -->
             <div class="lg:w-[40%] shadow-md hidden lg:flex lg:justify-center">
                 <img src="https://static.wikia.nocookie.net/ipod/images/c/cb/Jobs_hero20110329.png"
                     alt="Gerente General" class="rounded-2xl mx-auto w-full max-w-full shadow-lg" data-aos="fade-in">
             </div>
 
-            <!-- Contenido del mensaje -->
             <div class="lg:pl-10">
                 <h2 class="text-[40px] font-bold leading-[40px] mb-6" data-aos="fade-right">
-                    Propósito en palabras del <br> <span class="text-primary">Gerente General</span>
+                    Nuestro próposito
                 </h2>
 
                 <div class="lg:border-l lg:border-l-4 lg:border-l-primary rounded-2xl p-4 lg:p-6 shadow-md">
@@ -281,11 +289,10 @@
                     </div>
                 </div>
             </div>
-
         </div>
-    </section>
+    </section> -->
 
-    <section id="especialidades" class="bg-[#113A3F] text-white py-16 px-4 overflow-hidden sm:px-6 lg:px-8">
+    <section id="especialidades" class="bg-app-brown text-white py-16 px-4 overflow-hidden sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-20" data-aos="fade-down" data-aos-duration="800">
             <h2 class="text-[40px] leading-[40px] font-bold" data-aos="fade-right" data-aos-delay="100">
                 Nuestra<span class="text-primary"> historia</span>
@@ -304,19 +311,24 @@
                     data-aos-duration="800" data-aos-offset="200">
                     <div class="w-full md:w-5/12 flex justify-end">
                         <div class="text-right max-w-sm">
-                            <div class="mb-4 inline-block" data-aos="zoom-in" data-aos-duration="600"
-                                data-aos-delay="200">
-                                <svg class="w-24 h-24 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            <button type="button" href="" onclick="openGallery('gal1', [
+          'https://cdn.pixabay.com/photo/2016/11/22/19/24/archive-1850170_1280.jpg',
+          'https://www.microtech.es/hubfs/ERP%20Distribuidoras.jpg'
+        ])" class="mb-4 inline-block" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                                <!-- <svg class="w-24 h-24 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M12 3l-8 5v6c0 5.55 3.84 10.74 8 12 4.16-1.26 8-6.45 8-12V8l-8-5z"></path>
                                     <path d="M12 14.5L6 12M18 12l-6 2.5"></path>
                                     <path d="M12 21V14.5"></path>
                                     <path d="M8.5 10.5L12 9l3.5 1.5"></path>
                                     <path d="M15.5 10.5L12 12l-3.5-1.5"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-[18px] lg:text-2xl font-semibold mb-2" data-aos="fade-right" data-aos-duration="800"
-                                data-aos-delay="300">
+                                </svg> -->
+
+                                <img src="https://ehcontadoresperu.com/wp-content/uploads/2023/09/creacion-de-empresas-en-PERU.jpg"
+                                    alt="" class="w-[200px] h-[120px] rounded-md">
+                            </button>
+                            <h3 class="text-[18px] lg:text-2xl font-semibold mb-2" data-aos="fade-right"
+                                data-aos-duration="800" data-aos-delay="300">
                                 [Año] Fundación <br class="lg:hidden"> de <span class="text-primary">AUREN S.A.</span>
                             </h3>
                             <p class="text-white/80 text-sm" data-aos="fade-right" data-aos-duration="800"
@@ -337,19 +349,23 @@
                         data-aos-duration="600"></div>
                     <div class="w-full md:w-5/12 flex justify-start">
                         <div class="text-left max-w-sm">
-                            <div class="mb-4 inline-block" data-aos="zoom-in" data-aos-duration="600"
-                                data-aos-delay="200">
-                                <svg class="w-24 h-24 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            <button type="button" href="" onclick="openGallery('gal1', [
+          'https://cdn.pixabay.com/photo/2016/11/22/19/24/archive-1850170_1280.jpg',
+          'https://www.microtech.es/hubfs/ERP%20Distribuidoras.jpg'
+        ])" class="mb-4 inline-block" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                                <!-- <svg class="w-24 h-24 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M17 20s-3-3-5-3-5 3-5 3"></path>
                                     <path d="M12 17a2 2 0 100-4 2 2 0 000 4z"></path>
                                     <path d="M12 3a4 4 0 00-4 4v2a4 4 0 108 0V7a4 4 0 00-4-4z"></path>
                                     <path d="M5 17a2 2 0 100-4 2 2 0 000 4z"></path>
                                     <path d="M19 17a2 2 0 100-4 2 2 0 000 4z"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-[18px] lg:text-2xl font-semibold mb-2" data-aos="fade-right" data-aos-duration="800"
-                                data-aos-delay="300">
+                                </svg> -->
+                                <img src="https://www.esic.edu/sites/default/files/2023-09/vista-superior-escritorio-oficina-tabla-crecimiento-manos-min_11zon.jpg"
+                                    alt="" class="w-[200px] h-[120px] rounded-md">
+                            </button>
+                            <h3 class="text-[18px] lg:text-2xl font-semibold mb-2" data-aos="fade-right"
+                                data-aos-duration="800" data-aos-delay="300">
                                 [Año] <br class="lg:hidden"> <span class="text-primary">Expansión</span>
                             </h3>
                             <p class="text-white/80 text-sm" data-aos="fade-left" data-aos-duration="800"
@@ -364,9 +380,11 @@
                     data-aos-duration="800" data-aos-offset="200">
                     <div class="w-full md:w-5/12 flex justify-end">
                         <div class="text-right max-w-sm">
-                            <div class="mb-4 inline-block" data-aos="zoom-in" data-aos-duration="600"
-                                data-aos-delay="200">
-                                <svg class="w-24 h-24 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            <button type="button" href="" onclick="openGallery('gal1', [
+          'https://cdn.pixabay.com/photo/2016/11/22/19/24/archive-1850170_1280.jpg',
+          'https://www.microtech.es/hubfs/ERP%20Distribuidoras.jpg'
+        ])" class="mb-4 inline-block" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                                <!-- <svg class="w-24 h-24 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M14.5 9.5L12 2l-2.5 7.5"></path>
                                     <path d="M5 21h14"></path>
@@ -374,11 +392,15 @@
                                     <path d="M3 10h5l1 2a2 2 0 002 1h2a2 2 0 002-1l1-2h5"></path>
                                     <path d="M6.5 21L7 10"></path>
                                     <path d="M17.5 21L17 10"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-[18px] lg:text-2xl font-semibold mb-2" data-aos="fade-right" data-aos-duration="800"
-                                data-aos-delay="300">
-                                [Año] Nacimiento <br class="lg:hidden"> de <span class="text-primary">AURENLAC S.A.C.</span>
+                                </svg> -->
+
+                                <img src="https://www.esic.edu/sites/default/files/2023-09/vista-superior-escritorio-oficina-tabla-crecimiento-manos-min_11zon.jpg"
+                                    alt="" class="w-[200px] h-[120px] rounded-md">
+                            </button>
+                            <h3 class="text-[18px] lg:text-2xl font-semibold mb-2" data-aos="fade-right"
+                                data-aos-duration="800" data-aos-delay="300">
+                                [Año] Nacimiento <br class="lg:hidden"> de <span class="text-primary">AURENLAC
+                                    S.A.C.</span>
                             </h3>
                             <p class="text-white/80 text-sm" data-aos="fade-right" data-aos-duration="800"
                                 data-aos-delay="400">
@@ -398,17 +420,23 @@
                         data-aos-duration="600"></div>
                     <div class="w-full md:w-5/12 flex justify-start">
                         <div class="text-left max-w-sm">
-                            <div class="mb-4 inline-block" data-aos="zoom-in" data-aos-duration="600"
-                                data-aos-delay="200">
-                                <svg class="w-24 h-24 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            <button type="button" href="" onclick="openGallery('gal1', [
+          'https://cdn.pixabay.com/photo/2016/11/22/19/24/archive-1850170_1280.jpg',
+          'https://www.microtech.es/hubfs/ERP%20Distribuidoras.jpg'
+        ])" class="mb-4 inline-block" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                                <!-- <svg class="w-24 h-24 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                                </svg>
-                            </div>
-                            <h3 class="text-[18px] lg:text-2xl font-semibold mb-2" data-aos="fade-right" data-aos-duration="800"
-                                data-aos-delay="300">
-                                [Año] Creación <br class="lg:hidden"> de <span class="text-primary">WIZE PERU S.A.C.</span>
+                                </svg> -->
+
+                                <img src="https://subliproperu.com/wp-content/uploads/2024/08/Diseno-sin-titulo-1.png"
+                                    alt="" class="w-[200px] h-[120px] rounded-md">
+                            </button>
+                            <h3 class="text-[18px] lg:text-2xl font-semibold mb-2" data-aos="fade-right"
+                                data-aos-duration="800" data-aos-delay="300">
+                                [Año] Creación <br class="lg:hidden"> de <span class="text-primary">WIZE PERU
+                                    S.A.C.</span>
                             </h3>
                             <p class="text-white/80 text-sm" data-aos="fade-left" data-aos-duration="800"
                                 data-aos-delay="400">
@@ -433,9 +461,11 @@
                     data-aos-duration="800" data-aos-offset="200">
                     <div class="w-full md:w-5/12 flex justify-end">
                         <div class="text-right max-w-sm">
-                            <div class="mb-4 inline-block" data-aos="zoom-in" data-aos-duration="600"
-                                data-aos-delay="200">
-                                <svg class="w-24 h-24 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            <button type="button" href="" onclick="openGallery('gal1', [
+          'https://cdn.pixabay.com/photo/2016/11/22/19/24/archive-1850170_1280.jpg',
+          'https://www.microtech.es/hubfs/ERP%20Distribuidoras.jpg'
+        ])" class="mb-4 inline-block" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                                <!-- <svg class="w-24 h-24 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                     <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
                                     <line x1="7" y1="7" x2="7.01" y2="7"></line>
@@ -447,11 +477,15 @@
                                     <line x1="7" y1="17" x2="7.01" y2="17"></line>
                                     <line x1="12" y1="17" x2="12.01" y2="17"></line>
                                     <line x1="17" y1="17" x2="17.01" y2="17"></line>
-                                </svg>
-                            </div>
-                            <h3 class="text-[18px] lg:text-2xl font-semibold mb-2" data-aos="fade-right" data-aos-duration="800"
-                                data-aos-delay="300">
-                                [Año] Consolidación <br class="lg:hidden"> del <span class="text-primary">Grupo Auren</span>
+                                </svg> -->
+
+                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2HZ9KedeJpNInHUC0K1mzvm9WW6Skqw84dQ&s"
+                                    alt="" class="w-[200px] rounded-md">
+                            </button>
+                            <h3 class="text-[18px] lg:text-2xl font-semibold mb-2" data-aos="fade-right"
+                                data-aos-duration="800" data-aos-delay="300">
+                                [Año] Consolidación <br class="lg:hidden"> del <span class="text-primary">Grupo
+                                    Auren</span>
                             </h3>
                             <p class="text-white/80 text-sm" data-aos="fade-right" data-aos-duration="800"
                                 data-aos-delay="400">
@@ -471,9 +505,11 @@
                         data-aos-duration="600"></div>
                     <div class="w-full md:w-5/12 flex justify-start">
                         <div class="text-left max-w-sm">
-                            <div class="mb-4 inline-block" data-aos="zoom-in" data-aos-duration="600"
-                                data-aos-delay="200">
-                                <svg class="w-24 h-24 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            <button type="button" href="" onclick="openGallery('gal1', [
+          'https://cdn.pixabay.com/photo/2016/11/22/19/24/archive-1850170_1280.jpg',
+          'https://www.microtech.es/hubfs/ERP%20Distribuidoras.jpg'
+        ])" class="mb-4 inline-block" data-aos="zoom-in" data-aos-duration="600" data-aos-delay="200">
+                                <!-- <svg class="w-24 h-24 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M14.75 19.25L12 16.5l-2.75 2.75"></path>
                                     <path d="M14.75 19.25L9.25 13.75"></path>
@@ -481,10 +517,13 @@
                                     <path d="M5.5 17.5l-1.5 1.5"></path>
                                     <path d="M10.5 7.5l3-3 5.5 5.5-3 3"></path>
                                     <path d="M13.5 4.5L19 10"></path>
-                                </svg>
-                            </div>
-                            <h3 class="text-[18px] lg:text-2xl font-semibold mb-2" data-aos="fade-right" data-aos-duration="800"
-                                data-aos-delay="300">
+                                </svg> -->
+
+                                <img src="https://cursos.clavijero.edu.mx/cursos/area-basica/009_fa/modulo5/contenidos/img0.png"
+                                    alt="" class="w-[200px] h-[120px] rounded-md">
+                            </button>
+                            <h3 class="text-[18px] lg:text-2xl font-semibold mb-2" data-aos="fade-right"
+                                data-aos-duration="800" data-aos-delay="300">
                                 [Año] <br class="lg:hidden"> <span class="text-primary">Cobertura actual</span>
                             </h3>
                             <p class="text-white/80 text-sm" data-aos="fade-left" data-aos-duration="800"
@@ -499,7 +538,7 @@
     </section>
 
     <!-- Valores -->
-    <section id="services" class="my-10 py-16 bg-[#F9F0EC]">
+    <section id="services" class="my-10 py-16">
         <!-- Título principal -->
         <div class="container mx-auto text-left mb-14 px-4 lg:px-0" data-aos="fade-up">
             <h2 class="text-[40px] font-bold leading-[40px]">
@@ -508,83 +547,69 @@
         </div>
 
         <!-- 3 columnas -->
-        <div class="container px-4 lg:px-0 mx-auto grid grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
+        <div class="container px-4 lg:px-0 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
 
             <!-- Item 1 -->
-            <div class="service-card flex flex-col items-start rounded-md" data-aos="fade-up" data-aos-delay="100">
-                <span
-                    class="bg-[#09C6F4] text-xs font-bold text-left text-white inline-block w-[74px] px-3 py-1 rounded-md mb-4">01</span>
-                <div class="content text-left">
-                    <i class="ri-hand-heart-line text-auren text-[52px] mt-0.5" aria-hidden="true"></i>
-                    <h3 class="text-[24px] font-[400] leading-[24px]">Confianza que <br> perdura
+            <div class="flex flex-col items-start rounded-md" data-aos="fade-up" data-aos-delay="100">
+                <div class="content text-center lg:text-left">
+                    <i class="ri-hand-heart-line text-primary text-[52px] mt-0.5" aria-hidden="true"></i>
+                    <h3 class="text-[24px] font-[400] leading-[24px]">Pasión
                     </h3>
-                    <p class="text-sm text-gray-500 text-left  mt-6 max-w-[80%]">Relaciones de largo plazo con clientes
-                        y equipos.</p>
+                    <p class="text-sm text-gray-500 text-center lg:text-left  mt-6 max-w-[80%] mx-auto lg:mx-0">Nos
+                        mueve una energía auténtica por lo
+                        que hacemos. Ponemos el corazón en cada entrega, en cada cliente y en cada producto que
+                        distribuimos. La pasión nos impulsa a superar expectativas, mantener la excelencia y construir
+                        relaciones sólidas basadas en compromiso y confianza.</p>
                 </div>
             </div>
 
             <!-- Item 2 -->
-            <div class="service-card flex flex-col items-start rounded-md" data-aos="fade-up" data-aos-delay="100">
-                <span
-                    class="text-xs font-bold text-left text-white bg-[#01B976] inline-block w-[74px] px-3 py-1 rounded-md mb-4">02</span>
-                <div class="content text-left">
-                    <i class="ri-focus-2-line text-auren text-[52px] mt-0.5" aria-hidden="true"></i>
-                    <h3 class="text-[24px] font-[400] leading-[24px]">Precisión <br> operativa
+            <div class="flex flex-col items-start rounded-md" data-aos="fade-up" data-aos-delay="100">
+                <div class="content text-center lg:text-left">
+                    <i class="ri-focus-2-line text-primary text-[52px] mt-0.5" aria-hidden="true"></i>
+                    <h3 class="text-[24px] font-[400] leading-[24px]">Dinamismo
                     </h3>
-                    <p class="text-sm text-gray-500 text-left mt-6 max-w-[80%]">Cada entrega y cada dato bajo control.
+                    <p class="text-sm text-gray-500 text-center lg:text-left mt-6 max-w-[80%] mx-auto lg:mx-0">
+                        Somos una empresa en constante movimiento. Nos adaptamos con rapidez a los cambios del mercado,
+                        buscamos soluciones ágiles y trabajamos con entusiasmo para mantenernos siempre un paso
+                        adelante. El dinamismo es nuestra forma de garantizar eficiencia y resultados sostenibles.
                     </p>
                 </div>
             </div>
 
             <!-- Item 3 -->
-            <div class="service-card flex flex-col items-start rounded-md" data-aos="fade-up" data-aos-delay="100">
-                <span
-                    class="bg-[#FFAE01] text-xs font-bold text-left text-white inline-block w-[74px] px-3 py-1 rounded-md mb-4">03</span>
-                <div class="content text-left">
-                    <i class="ri-rocket-line text-auren text-[52px] mt-0.5" aria-hidden="true"></i>
-                    <h3 class="text-[24px] font-[400] leading-[24px]">Energía <br> emprendedora
+            <div class="flex flex-col items-start rounded-md" data-aos="fade-up" data-aos-delay="100">
+                <div class="content text-center lg:text-left">
+                    <i class="ri-rocket-line text-primary text-[52px] mt-0.5" aria-hidden="true"></i>
+                    <h3 class="text-[24px] font-[400] leading-[24px]">Creatividad
                     </h3>
-                    <p class="text-sm text-gray-500 text-left mt-6 max-w-[80%]">Crecemos con agilidad y decisión.</p>
+                    <p class="text-sm text-gray-500 text-center lg:text-left mt-6 max-w-[80%] mx-auto lg:mx-0">
+                        Creemos que cada reto es una oportunidad para innovar. La creatividad nos permite optimizar
+                        procesos, mejorar la experiencia de nuestros clientes y encontrar nuevas formas de crecer. No
+                        solo distribuimos productos, también ideas que transforman y generan valor.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CEO -->
+    <section class="bg-[#301b2d] py-20">
+        <div class="container mx-auto max-w-5xl flex flex-col md:flex-row items-center gap-10 md:gap-16">
+
+            <!-- Imagen circular con fondo rosa -->
+            <div class="flex-shrink-0" data-aos="zoom-in">
+                <div class="bg-[#ff0054] lg:w-[400px] overflow-hidden flex items-center justify-center rounded-[180px]">
+                    <img src="./images/ceo.png" alt="Testimonio" class="w-[220px] h-[220px] object-cover" />
                 </div>
             </div>
 
-            <!-- Item 4 -->
-            <div class="service-card flex flex-col items-start rounded-md mt-4" data-aos="fade-up" data-aos-delay="100">
-                <span
-                    class="text-xs font-bold text-left text-white bg-[#01B976] inline-block w-[74px] px-3 py-1 rounded-md mb-4">04</span>
-                <div class="content text-left">
-                    <i class="ri-flask-line text-auren text-[52px] mt-0.5" aria-hidden="true"></i>
-                    <h3 class="text-[24px] font-[400] leading-[24px]">Mejora <br> continua
-                    </h3>
-                    <p class="text-sm text-gray-500 text-left mt-6 max-w-[80%]">Procesos que evolucionan y aprenden.</p>
-                </div>
-            </div>
-
-            <!-- Item 5 -->
-            <div class="service-card flex flex-col items-start rounded-md mt-4" data-aos="fade-up" data-aos-delay="100">
-                <span
-                    class="bg-[#FFAE01] text-xs font-bold text-left text-white inline-block w-[74px] px-3 py-1 rounded-md mb-4">05</span>
-                <div class="content text-left">
-                    <i class="ri-user-heart-line text-auren text-[52px] mt-0.5" aria-hidden="true"></i>
-                    <h3 class="text-[24px] font-[400] leading-[24px]">Compromiso <br> humano</h3>
-                    <p class="text-sm text-gray-500 text-left  mt-6 max-w-[80%]">Cuidamos a las personas que hacen
-                        posible cada proyecto.</p>
-                </div>
-            </div>
-
-            <!-- Item 6 -->
-            <div class="service-card flex flex-col items-start rounded-md mt-4" data-aos="fade-up" data-aos-delay="100">
-                <span
-                    class="bg-[#09C6F4] text-xs font-bold text-left text-white inline-block w-[74px] px-3 py-1 rounded-md mb-4">06</span>
-                <div class="content text-left">
-                    <i class="ri-earth-line text-auren text-[52px] mt-0.5" aria-hidden="true"></i>
-                    <h3 class="text-[24px] font-[400] leading-[24px]">Responsabilidad
-                    </h3>
-                    <br>
-                    <p class="text-sm text-gray-500 text-left mt-6 max-w-[90%]">
-                        Actuamos con ética y respeto por el entorno.
-                    </p>
-                </div>
+            <!-- Texto del testimonio -->
+            <div class="text-white flex items-start data-aos=" fade-left" data-aos-delay="200">
+                <i class="ri-double-quotes-l text-[#ff0054] text-5xl mb-4 block"></i>
+                <p class="text-2xl leading-relaxed font-light">
+                    A lo largo de los años, hemos crecido con pasión, adaptándonos al cambio, apostando por la
+                    tecnología y, sobre todo, priorizando la confianza de nuestros clientes.
+                </p>
             </div>
 
         </div>
@@ -687,130 +712,9 @@
         </div>
     </section>
 
-    <!-- Cifras clave -->
-    <section class="bg-white py-16">
-        <div class="container mx-auto px-4 lg:px-0">
-            <div class="mb-10">
-                <h2 class="text-[40px] leading-[40px] font-bold" data-aos="fade-right" data-aos-delay="100">
-                    Cifras<span class="text-primary"> clave</span>
-                </h2>
-                <p class="mt-4" data-aos="fade-right" data-aos-delay="150">
-                    Indicadores que reflejan nuestra experiencia operativa
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
-
-                <!-- Card 1 -->
-                <div class="rounded-2xl bg-gradient-to-br from-[#fce6eb] to-white p-6 shadow-md hover:shadow-md transition"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex items-center gap-2 mb-4" data-aos="fade-down" data-aos-delay="150">
-                        <i class="ri-time-line text-xl text-[#b91c1c]"></i>
-                        <span class="text-sm font-semibold text-[#b91c1c]">Trayectoria</span>
-                    </div>
-                    <h3 class="text-3xl font-bold" data-aos="zoom-in" data-aos-delay="200">20</h3>
-                    <p class="text-sm text-gray-500" data-aos="fade-in" data-aos-delay="250">Años de experiencia</p>
-                    <div class="mt-4" data-aos="fade-up" data-aos-delay="300">
-                        <svg class="mt-4 w-full h-10" viewBox="0 0 200 40" fill="none" aria-hidden="true">
-                            <path d="M2 30 L30 18 L48 24 L72 10 L92 16 L120 8 L140 22 L162 14 L198 26"
-                                class="stroke-auren/50" stroke-width="2" stroke-linecap="round" fill="none"></path>
-                            <defs>
-                                <style>
-                                    .stroke-auren\/50 {
-                                        stroke: #9B2743;
-                                        opacity: .5
-                                    }
-                                </style>
-                            </defs>
-                        </svg>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="rounded-2xl bg-gradient-to-br from-[#fce6eb] to-white p-6 shadow-md hover:shadow-md transition"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex items-center gap-2 mb-4" data-aos="fade-down" data-aos-delay="250">
-                        <i class="ri-bar-chart-grouped-line text-xl text-[#b91c1c]"></i>
-                        <span class="text-sm font-semibold text-[#b91c1c]">Gestión</span>
-                    </div>
-                    <h3 class="text-3xl font-bold" data-aos="zoom-in" data-aos-delay="300">120</h3>
-                    <p class="text-sm text-gray-500" data-aos="fade-in" data-aos-delay="350">Proyectos gestionados</p>
-                    <div class="mt-4" data-aos="fade-up" data-aos-delay="400">
-                        <svg class="mt-4 w-full h-10" viewBox="0 0 200 40" fill="none" aria-hidden="true">
-                            <path d="M2 30 L30 18 L48 24 L72 10 L92 16 L120 8 L140 22 L162 14 L198 26"
-                                class="stroke-auren/50" stroke-width="2" stroke-linecap="round" fill="none"></path>
-                            <defs>
-                                <style>
-                                    .stroke-auren\/50 {
-                                        stroke: #9B2743;
-                                        opacity: .5
-                                    }
-                                </style>
-                            </defs>
-                        </svg>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="rounded-2xl bg-gradient-to-br from-[#fce6eb] to-white p-6 shadow-md hover:shadow-md transition"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <div class="flex items-center gap-2 mb-4" data-aos="fade-down" data-aos-delay="350">
-                        <i class="ri-global-line text-xl text-[#b91c1c]"></i>
-                        <span class="text-sm font-semibold text-[#b91c1c]">Cobertura</span>
-                    </div>
-                    <h3 class="text-3xl font-bold" data-aos="zoom-in" data-aos-delay="400">24</h3>
-                    <p class="text-sm text-gray-500" data-aos="fade-in" data-aos-delay="450">Ciudades con operación</p>
-                    <div class="mt-4" data-aos="fade-up" data-aos-delay="500">
-                        <svg class="mt-4 w-full h-10" viewBox="0 0 200 40" fill="none" aria-hidden="true">
-                            <path d="M2 30 L30 18 L48 24 L72 10 L92 16 L120 8 L140 22 L162 14 L198 26"
-                                class="stroke-auren/50" stroke-width="2" stroke-linecap="round" fill="none"></path>
-                            <defs>
-                                <style>
-                                    .stroke-auren\/50 {
-                                        stroke: #9B2743;
-                                        opacity: .5
-                                    }
-                                </style>
-                            </defs>
-                        </svg>
-                    </div>
-                </div>
-
-                <!-- Card 4 -->
-                <div class="rounded-2xl bg-gradient-to-br from-[#fce6eb] to-white p-6 shadow-md hover:shadow-md transition"
-                    data-aos="fade-up" data-aos-delay="400">
-                    <div class="flex items-center gap-2 mb-4" data-aos="fade-down" data-aos-delay="450">
-                        <i class="ri-database-2-line text-xl text-[#b91c1c]"></i>
-                        <span class="text-sm font-semibold text-[#b91c1c]">Volumen</span>
-                    </div>
-                    <h3 class="text-3xl font-bold" data-aos="zoom-in" data-aos-delay="500">20 M
-                    </h3>
-                    <p class="text-sm text-gray-500" data-aos="fade-in" data-aos-delay="550">Productos gestionados/año
-                    </p>
-                    <div class="mt-4" data-aos="fade-up" data-aos-delay="600">
-                        <svg class="mt-4 w-full h-10" viewBox="0 0 200 40" fill="none" aria-hidden="true">
-                            <path d="M2 30 L30 18 L48 24 L72 10 L92 16 L120 8 L140 22 L162 14 L198 26"
-                                class="stroke-auren/50" stroke-width="2" stroke-linecap="round" fill="none"></path>
-                            <defs>
-                                <style>
-                                    .stroke-auren\/50 {
-                                        stroke: #9B2743;
-                                        opacity: .5
-                                    }
-                                </style>
-                            </defs>
-                        </svg>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-gradient-to-r from-[#ff0054] to-[#7a0f3c] text-white py-16 relative overflow-hidden">
+    <!-- <section class="bg-gradient-to-r from-[#ff0054] to-[#7a0f3c] text-white py-16 relative overflow-hidden">
         <div class="container mx-auto px-4 lg:px-0 flex flex-col md:flex-row justify-between items-center gap-8">
 
-            <!-- Texto -->
             <div class="max-w-xl" data-aos="fade-right">
                 <span
                     class="inline-block bg-white text-[#ff0054] font-semibold text-xs px-3 py-1 rounded-full mb-3 shadow-sm"
@@ -825,7 +729,6 @@
                 </p>
             </div>
 
-            <!-- Botón -->
             <div data-aos="zoom-in" data-aos-delay="400">
                 <a href="#reunion"
                     class="inline-flex items-center gap-2 bg-white text-[#ff0054] font-medium text-sm px-5 py-3 rounded-md shadow-md hover:bg-gray-100 transition">
@@ -835,7 +738,7 @@
             </div>
 
         </div>
-    </section>
+    </section> -->
 
     <!-- Trabaja con nosotros -->
     <section class="relative bg-white py-20 overflow-hidden">
@@ -843,18 +746,15 @@
 
             <!-- Contenido -->
             <div class="lg:pr-8" data-aos="fade-right">
-                <div class="flex items-center gap-2 mb-4" data-aos="fade-up" data-aos-delay="100">
-                    <i class="ri-briefcase-line text-xl text-[#ff0054]"></i>
-                    <span class="text-sm font-semibold text-[#ff0054]">Talento Auren</span>
-                </div>
-                <h2 class="text-3xl md:text-4xl font-bold text-[#0b0b0b] mb-4 leading-tight" data-aos="fade-up"
-                    data-aos-delay="200">
+                <p class="text-sm font-bold text-[#ff0054] uppercase mb-2">
+                    Talento Auren
+                </p>
+                <h2 class="text-[40px] font-bold leading-[40px]">
                     Trabaja con nosotros
                 </h2>
-                <p class="text-gray-600 text-base leading-relaxed mb-6" data-aos="fade-up" data-aos-delay="300">
-                    Buscamos personas con actitud, compromiso y ganas de crecer. Ofrecemos oportunidades reales de
-                    desarrollo, capacitación y un entorno que impulsa el talento.
-                </p>
+                <p class="text-gray-500 mt-4">Buscamos personas con actitud, compromiso y ganas de crecer. Ofrecemos
+                    oportunidades reales de
+                    desarrollo, capacitación y un entorno que impulsa el talento.</p>
                 <button type="button"
                     class="mt-8 relative z-50 inline-block border-2 border-primary text-primary font-semibold px-5 py-2 rounded-md bg-primary text-white transition"
                     onclick="openModal()">
@@ -942,7 +842,7 @@
         }
     </script>
 
-    <footer class="border-t border-slate-800 bg-[#351E29] text-white">
+    <footer class="border-t border-slate-800 bg-app-brown text-white">
         <div class="container mx-auto px-4 lg:px-0 pt-12 pb-6">
             <div class="grid grid-cols-1 gap-y-10 md:grid-cols-12 md:gap-x-10">
                 <!-- ABOUT (col-span-5) -->
@@ -1066,49 +966,6 @@
     </script>
 
     <script>
-        function animateCounter(el, target) {
-            let start = 0;
-            const duration = 1500;
-            const startTime = performance.now();
-
-            const update = (currentTime) => {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
-                const value = Math.floor(progress * target);
-
-                el.textContent = target >= 10000
-                    ? value.toLocaleString('de-DE') // formateo con puntos
-                    : value;
-
-                if (progress < 1) {
-                    requestAnimationFrame(update);
-                }
-            };
-
-            requestAnimationFrame(update);
-        }
-
-        let statsAnimated = false;
-
-        function triggerStats() {
-            const section = document.getElementById('statsSection');
-            const rect = section.getBoundingClientRect();
-
-            if (!statsAnimated && rect.top < window.innerHeight && rect.bottom > 0) {
-                statsAnimated = true;
-                document.querySelectorAll('.stat').forEach(el => {
-                    const target = parseInt(el.dataset.target.replace(/\./g, ''));
-                    el.textContent = '0'; // reset visualmente antes de iniciar
-                    animateCounter(el, target);
-                });
-            }
-        }
-
-        window.addEventListener('scroll', triggerStats);
-        window.addEventListener('load', triggerStats);
-    </script>
-
-    <script>
         (function () {
             const container = document.getElementById('logo-marquee');
             const track = document.getElementById('marquee-track');
@@ -1199,6 +1056,20 @@
             }, 300);
         }
     </script>
+
+    <script>
+        window.fslightboxInstances = {};
+
+        function openGallery(name, images) {
+            if (!window.fslightboxInstances[name]) {
+                window.fslightboxInstances[name] = new FsLightbox();
+                window.fslightboxInstances[name].props.sources = images;
+            }
+
+            window.fslightboxInstances[name].open();
+        }
+    </script>
+
 
 </body>
 
