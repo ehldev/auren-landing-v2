@@ -74,7 +74,7 @@
                 <nav class="hidden md:flex items-center gap-8 text-sm font-semibold uppercase">
                     <a href="index.html" class="text-[15px] hover:text-primary">Portada</a>
                     <a href="sobre-nosotros.html" class="text-[15px] hover:text-primary">Nosotros</a>
-                    <a href="index.html#servicios" class="text-[15px] hover:text-primary">Servicios</a>
+                    <a href="servicios.html" class="text-[15px] hover:text-primary">Servicios</a>
                     <a href="#blog" class="text-[15px] hover:text-primary">Blog</a>
                     <button type="button"
                         class="inline-block border-2 border-primary text-primary font-semibold px-3 py-1 rounded-md bg-primary text-white transition"
@@ -94,38 +94,36 @@
 
             <a href="index.html" class="text-[15px] hover:text-primary">Portada</a>
             <a href="sobre-nosotros.html" class="text-[15px] hover:text-primary">Nosotros</a>
-            <a href="index.html#servicios" class="text-[15px] hover:text-primary">Servicios</a>
+            <a href="servicios.html" class="text-[15px] hover:text-primary">Servicios</a>
             <a href="#" class="text-[15px] hover:text-primary">Blog</a>
         </div>
 
         <!-- HERO -->
-        <section
-            class="pt-28 pb-16 md:pt-[140px] bg-gradient-to-r from-[#ff0054] to-[#7a0f3c] text-white relative overflow-hidden">
+        <section class="pt-28 pb-16 md:pt-[140px] relative overflow-hidden">
             <div class="container mx-auto px-6 text-center">
 
                 <!-- Texto -->
                 <div data-aos="fade-right">
-                    <h2 class="text-3xl md:text-4xl font-bold mb-4 leading-tight" data-aos="fade-in">
-                        Únete al equipo AUREN
+                    <h2 class="text-3xl md:text-4xl font-bold leading-tight" data-aos="fade-in">
+                        Únete al<br> <span class="text-primary">equipo AUREN</span>
                     </h2>
-                    <p class="text-white/80" data-aos="fade-up" data-aos-delay="300">
-                        En Grupo Auren buscamos personas apasionadas, comprometidas y con visión de crecimiento para
-                        <br>
+                    <p class="text-gray-500 my-6" data-aos="fade-up" data-aos-delay="300">
+                        En Grupo Auren buscamos personas apasionadas, comprometidas y con visión de crecimiento para <br>
                         seguir conectando productos, procesos y personas en todo el país.
                     </p>
                 </div>
 
                 <!-- Botón -->
-                <div class="mt-8" data-aos="zoom-in" data-aos-delay="500">
-                    <a href="#reunion"
-                        class="inline-flex items-center gap-2 bg-white text-[#ff0054] font-medium text-sm px-5 py-3 rounded-md shadow-md hover:bg-gray-100 transition">
+                <div data-aos="zoom-in" data-aos-delay="500">
+                    <button type="button"
+                        class="inline-flex items-center gap-2 bg-primary text-white font-medium text-sm px-5 py-3 rounded-md shadow-md hover:bg-primary transition"
+                        onclick="openModal()">
                         Solicita información
-                    </a>
+                    </button>
                 </div>
 
             </div>
         </section>
-
     </div>
 
     <section class="pt-16">
@@ -413,9 +411,9 @@
                         <li><a href="servicios.html" class="hover:text-white">Servicios</a></li>
                         <li><a href="#services" class="hover:text-white">Blog</a></li>
                         <li><a href="trabaja-con-nosotros.html" class="hover:text-white">Trabaja con nosotros</a></li>
-                        <li><a href="#services" class="hover:text-white">Términos y condiciones</a></li>
-                        <li><a href="#services" class="hover:text-white">Políticas de privacidad</a></li>
-                        <li><a href="#services" class="hover:text-white">Políticas de Cookies</a></li>
+                        <li><a href="terminos-y-condiciones.html" class="hover:text-white">Términos y condiciones</a></li>
+                        <li><a href="politicas-de-privacidad.html" class="hover:text-white">Políticas de privacidad</a></li>
+                        <li><a href="politicas-de-cookies.html" class="hover:text-white">Políticas de Cookies</a></li>
                     </ul>
 
                     <div class="mt-6">
@@ -475,6 +473,57 @@
             <p>© <span id="ft-year"></span> Grupo Auren. Todos los derechos reservados</p>
         </div>
     </footer>
+
+    <!-- Modal Overlay -->
+    <div id="modalOverlay" class="fixed inset-0 z-[120] hidden flex items-center justify-center min-h-screen">
+
+        <!-- Fondo oscuro -->
+        <div onclick="closeModal()"
+            class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity duration-300 opacity-0"
+            id="modalBackdrop"></div>
+
+        <!-- Modal -->
+        <div id="modalContent"
+            class="relative bg-app-brown text-white max-w-xl w-full mx-4 rounded-2xl shadow-2xl p-6 sm:p-10 z-10 opacity-0 scale-95 translate-y-10 transition-all duration-300">
+
+            <!-- Botón cerrar -->
+            <button onclick="closeModal()"
+                class="absolute top-4 right-4 text-white text-2xl hover:text-[#ff0054]">&times;</button>
+
+            <!-- Resto del contenido... -->
+            <h2 class="text-xl sm:text-2xl font-bold mb-2">Agendar reunión con <span class="text-[#ff0054]">Grupo</span>
+                Auren</h2>
+
+            <div class="flex items-center gap-2 mt-4 mb-3">
+                <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" class="w-5 h-5" />
+                <span class="text-lg font-bold text-white">+51 999 999 999</span>
+            </div>
+            <p class="text-sm text-gray-300 mb-6">Solicita una reunión gratuita según tu rubro. <br>(L-V
+                9AM-6PM / Sáb 9AM-1PM)</p>
+
+            <!-- Formulario -->
+            <form class="space-y-4 text-sm text-black">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <input type="text" placeholder="Nombre"
+                        class="rounded-md px-4 py-2 w-full outline-none border border-gray-300" required>
+                    <input type="email" placeholder="Correo electrónico"
+                        class="rounded-md px-4 py-2 w-full outline-none border border-gray-300" required>
+                    <input type="text" placeholder="RUC"
+                        class="rounded-md px-4 py-2 w-full outline-none border border-gray-300" required>
+                    <input type="text" placeholder="Teléfono"
+                        class="rounded-md px-4 py-2 w-full outline-none border border-gray-300" required>
+                </div>
+                <textarea rows="3"
+                    placeholder="Por favor, indica tu rubro y cuántas facturas, boletas y guías emites mensualmente."
+                    class="rounded-md px-4 py-2 w-full outline-none border border-gray-300"></textarea>
+
+                <button type="submit"
+                    class="w-full bg-[#ffbe2e] hover:bg-[#f3ad0c] text-[#0b0b0b] font-bold py-2 rounded-md transition">
+                    Solicitar
+                </button>
+            </form>
+        </div>
+    </div>
 
     <button type="button" class="fixed bottom-[30px] right-[30px]">
         <img src="https://reinodelvalle.pe/_nuxt/img/whatsapp-floating.5affb43.png" alt=""
